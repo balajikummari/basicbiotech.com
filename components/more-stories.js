@@ -1,4 +1,4 @@
-import PostPreview from '../components/post-preview'
+import PostPreview from "../components/post-preview";
 
 export default function MoreStories({ posts }) {
   return (
@@ -11,7 +11,7 @@ export default function MoreStories({ posts }) {
           <PostPreview
             key={node.slug}
             title={node.title}
-            coverImage={node.featuredImage.node}
+            coverImage={node?.featuredImage?.node}
             date={node.date}
             author={node.author.node}
             slug={node.slug}
@@ -20,5 +20,5 @@ export default function MoreStories({ posts }) {
         ))}
       </div>
     </section>
-  )
+  );
 }
