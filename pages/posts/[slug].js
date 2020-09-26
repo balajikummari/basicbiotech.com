@@ -30,15 +30,17 @@ export default function Post({ post, posts, preview }) {
         ) : (
           <>
             <article>
+
               <Head>
                 <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
+                  {post.title} | Basic Biotech
                 </title>
                 <meta
                   property="og:image"
                   content={post.featuredImage?.node?.sourceUrl}
                 />
               </Head>
+
               <PostHeader
                 title={post.title}
                 coverImage={post.featuredImage.node}
@@ -48,6 +50,7 @@ export default function Post({ post, posts, preview }) {
               />
               <PostBody content={post.content} />
               <footer>
+                {/*TODO: set tags in WP  wuery*/}
                 {post.tags.edges.length > 0 && <Tags tags={post.tags} />}
               </footer>
             </article>

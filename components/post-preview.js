@@ -11,6 +11,9 @@ export default function PostPreview({
   author,
   slug,
 }) {
+  // TODO: Post Preview Structure
+   // TODO: Post Preview Props
+  // TODO: Post Preview Style
   return (
     <div>
       <div className="mb-5">
