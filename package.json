@@ -7,6 +7,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "classnames": "2.2.6",
     "date-fns": "2.14.0",
     "next": "latest",
@@ -15,8 +16,7 @@
   },
   "devDependencies": {
     "postcss-flexbugs-fixes": "4.2.1",
-    "postcss-preset-env": "^6.7.0",
-    "tailwindcss": "^1.4.6"
+    "postcss-preset-env": "^6.7.0"
   },
   "license": "MIT"
 }
