@@ -3,7 +3,7 @@ import React from "react";
 import { Box, Button, Grid, MenuItem, Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import ButtonAppBarCollapse from "./ButtonAppBarCollapse";
-import Topics from "./Topics";
+import Topics from "./topics";
 
 const styles = theme => ({
   root: {
