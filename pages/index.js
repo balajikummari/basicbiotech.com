@@ -1,14 +1,13 @@
 import Head from 'next/head'
-import Container from '../components/container'
 import MoreStories from '../components/more-stories'
-// import Intro from '../components/intro'
 import Layout from '../components/layout'
 import { getAllPostsForHome } from '../lib/api'
-// import { CMS_NAME } from '../lib/constants'
+import Header from '../components/custom/header'
+import { Box, Container } from '@material-ui/core'
 
 export default function Index({ allPosts: { edges }, preview }) {
 
-  const morePosts = edges.slice(0)
+  const postPreviewContent = edges
 
   return (
     <>
@@ -16,11 +15,12 @@ export default function Index({ allPosts: { edges }, preview }) {
         <Head>
           <title>Basic Biotech </title>
         </Head>
-        <Container>
-          {/*TODO : Header */}
-          {/* <Intro /> TODO :  */}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+        <Header />
+        <Box style={{backgroundColor:'black'}}>
+        <Container >
+          {postPreviewContent.length > 0 && <MoreStories posts={postPreviewContent} />}
         </Container>
+        </Box>
       </Layout>
     </>
   )

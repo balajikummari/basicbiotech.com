@@ -6,7 +6,7 @@ const theme = createMuiTheme({
   palette: {
     type: 'dark',
     primary: {
-      main: '#556cd6',
+      main: '#0988C8',
     },
     secondary: {
       main: '#19857b',
@@ -14,6 +14,11 @@ const theme = createMuiTheme({
     error: {
       main: red.A400,
     },
+    typography: {
+      button: {
+        textTransform: 'none'
+      }
+    }
     
   },
 });

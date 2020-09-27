@@ -1,4 +1,4 @@
-import Container from './container'
+import { Box } from '@material-ui/core'
 import cn from 'classnames'
 import { EXAMPLE_PATH } from '../lib/constants'
 
@@ -10,7 +10,7 @@ export default function Alert({ preview }) {
         'bg-accent-1 border-accent-2': !preview,
       })}
     >
-      <Container>
+      <Box>
         <div className="py-2 text-center text-sm">
           {preview ? (
             <>
@@ -36,7 +36,7 @@ export default function Alert({ preview }) {
             </>
           )}
         </div>
-      </Container>
+      </Box>
     </div>
   )
 }
