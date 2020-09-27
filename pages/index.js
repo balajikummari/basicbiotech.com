@@ -9,6 +9,7 @@ export default function Index({ allPosts: { edges }, preview }) {
 
   const postPreviewContent = edges
 
+  //TODO : FramerX motion
   return (
     <>
       <Layout preview={preview}> 

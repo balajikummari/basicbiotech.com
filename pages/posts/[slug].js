@@ -10,7 +10,7 @@ import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import Tags from '../../components/tags'
-import { Box } from '@material-ui/core'
+import { Box, Container, Typography } from '@material-ui/core'
 
 export default function Post({ post, posts, preview }) {
   const router = useRouter()
@@ -36,26 +36,28 @@ export default function Post({ post, posts, preview }) {
                 </title>
                 <meta
                   property="og:image"
-                  content={post.featuredImage?.node?.sourceUrl}
+                  content={post.postdata?.thumbnail?.mediaItemUrl}
                 />
               </Head>
 
-              <PostHeader
+              {/* <PostHeader
                 title={post.title}
-                coverImage={post.featuredImage.node}
+                coverImage={post.postdata?.thumbnail?.mediaItemUrl}
                 date={post.date}
-                author={post.author.node}
-                categories={post.categories}
-              />
+                author={singlePost.postdata}
+                categories={singlePost.postdata}
+              /> */}
               <PostBody content={post.content} />
               <footer>
+              <Container><Typography variant="h5" color="initial">Footer Section</Typography></Container>
                 {/*TODO: set tags in WP  wuery*/}
-                {post.tags.edges.length > 0 && <Tags tags={post.tags} />}
+                {/* {post.tags.edges.length > 0 && <Tags tags={post.tags} />} */}
               </footer>
             </article>
 
             <SectionSeparator />
-            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+            <Container><Typography variant="h5" color="initial">More posts Section</Typography></Container>
+            {/* {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
           </>
         )}
       </Box>
@@ -65,7 +67,7 @@ export default function Post({ post, posts, preview }) {
 
 export async function getStaticProps({ params, preview = false, previewData }) {
   const data = await getPostAndMorePosts(params.slug, preview, previewData)
-
+  console.log("inde post",data)
   return {
     props: {
       preview,
