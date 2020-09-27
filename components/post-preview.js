@@ -79,6 +79,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PostPreview({ singlePost }) {
   const classes = useStyles();
+  const cdnAuthor = "https://mldspy5by2vi.i.optimole.com/w:50/h:auto/q:auto/";
+  const ThumbNail = "https://mldspy5by2vi.i.optimole.com/w:400/h:auto/q:auto/";
+
 
   return (
     <Grid item xs={12} sm={6} md={4} lg={4}>
@@ -86,10 +89,10 @@ export default function PostPreview({ singlePost }) {
 
         {/** Author Photo Name and Date */}
         <CardHeader  style={{ padding: '1rem 0rem 0.5rem 1.5rem' }} avatar={
-            <Avatar aria-label="recipe"
+            <Avatar aria-label="author"
               className={classes.large}
               alt={singlePost.postdata.authorname}
-              src={singlePost.postdata.authorimage.mediaItemUrl} />}
+              src={cdnAuthor + singlePost.postdata.authorimage.mediaItemUrl} />}
           title={singlePost.postdata.authorname}
           subheader="September 14, 2016"
         />
@@ -122,7 +125,7 @@ export default function PostPreview({ singlePost }) {
         <Container>
           <CardMedia
             className={classes.media}
-            image={singlePost.postdata.thumbnail.mediaItemUrl}
+            image={ThumbNail + singlePost.postdata.thumbnail.mediaItemUrl}
             title={singlePost.title}
           />
         </Container>

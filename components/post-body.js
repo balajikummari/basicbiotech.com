@@ -1,12 +1,14 @@
-import styles from './post-body.module.css'
+import { Container } from '@material-ui/core';
+import { StylesProvider } from '@material-ui/core/styles';
+import Parser from 'html-react-parser';
+import {Link, RichText, Date} from 'prismic-reactjs';
+
 
 export default function PostBody({ content }) {
   return (
-    <div className="max-w-2xl mx-auto">
-      <div
-        className={styles.content}
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
-    </div>
+    <Container>
+    {Parser(content)}
+    {/* <RichText render={content} Component="title" /> */}
+    </Container>
   )
 }
