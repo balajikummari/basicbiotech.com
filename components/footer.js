@@ -21,7 +21,7 @@ export default function Footer() {
         <Grid item lg={3}  >
         <Box display="flex">
         <Link as href='/' variant='inherit' underline="none">
-          <Avatar aria-label="author" variant="square" style={{ margin: "0rem 1rem" }}>B</Avatar>
+          <Avatar aria-label="author" variant="square" src="/favicon/android-icon-192x192.png" />
           </Link>
           <Typography
             variant="h6"

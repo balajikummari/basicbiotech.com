@@ -31,7 +31,7 @@ function ButtonAppBar(props) {
     <AppBar position="fixed" color="default" className={classes.navigation}>
       <Toolbar>
         <Link as href='/' variant='inherit' underline="none">
-          <Avatar aria-label="author" variant="square" style={{ margin: "0rem 1rem" }}>B</Avatar>
+          <Avatar aria-label="author" variant="square" style={{ margin: "0rem 1rem" }} src="/favicon/android-icon-192x192.png"  />
           </Link>
           <Typography
             variant="h6"
