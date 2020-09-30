@@ -1,11 +1,13 @@
 // import Alert from '../components/alert'
+import Header from '../components/custom/header'
 import Footer from '../components/footer'
 import Meta from '../components/meta'
 
-export default function Layout({ preview, children }) {
+export default function Layout({ children,allTopics }) {
   return (
     <>
-      <Meta />                                              { /*TODO : Change Meta Data*/}
+      <Meta /> 
+      <Header allTopics={allTopics}/>                                             { /*TODO : Change Meta Data*/}
       <div>
         <main>{children}</main>
       </div>

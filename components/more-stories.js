@@ -6,10 +6,7 @@ export default function MoreStories({ posts }) {
  
   return (
     <section>
-      <Grid container spacing={6} >
-        {posts.map(({ node }) => (
-          <PostPreview singlePost = {node} />
-        ))}
+      <Grid container spacing={7} >
         {posts.map(({ node }) => (
           <PostPreview singlePost = {node} />
         ))}

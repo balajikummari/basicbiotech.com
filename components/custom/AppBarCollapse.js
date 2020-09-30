@@ -4,6 +4,7 @@ import { Box, Button, Grid, MenuItem, Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import ButtonAppBarCollapse from "./ButtonAppBarCollapse";
 import Topics from "./topics";
+import Link from "next/link";
 
 const styles = theme => ({
   root: {
@@ -28,18 +29,15 @@ const AppBarCollapse = props => (
     <ButtonAppBarCollapse >
       <Box  pl={2} pr ={5} pt={2} >
         <Typography variant="subtitle1" color="Primary" style={{ paddingLeft: '1rem' }} >Topics</Typography>
-        <MenuItem dense>
-        <Typography variant="h6" color="initial">Biotechnology</Typography>
+        { props?.allTopics?.map((topic) => {
+        return(
+          <Link as={`/topics/${topic.node.name}`} href={`/topics/${topic.node.name}`} color='inherit' underline='none'>
+          <MenuItem dense>
+        <Typography variant="h6" color="initial">{topic.node.name}</Typography>
         </MenuItem>
-        <MenuItem dense>
-        <Typography variant="h6" color="initial">Biotechnology</Typography>
-        </MenuItem>
-        <MenuItem dense>
-        <Typography variant="h6" color="initial">Biotechnology</Typography>
-        </MenuItem>
-        <MenuItem dense>
-        <Typography variant="h6" color="initial">Biotechnology</Typography>
-        </MenuItem>
+          </Link>
+        );
+      })}
       </Box>
       <Box  pl={2} pr ={5} pt={3}>
         <Typography variant="subtitle1" color="Primary" style={{ paddingLeft: '1rem' }} >About</Typography>
@@ -58,7 +56,7 @@ const AppBarCollapse = props => (
       </Box>
     </ButtonAppBarCollapse>
     <Box display='flex' className={props.classes.buttonBar} id="appbar-collapse">
-      <Topics style={{ padding: '0.5rem 1rem' }} />
+      <Topics style={{ padding: '0.5rem 1rem' }} allTopics ={props.allTopics}/>
       <Button style={{ padding: '0.5rem 1rem' }} >About</Button>
       <Button style={{ padding: '0.5rem 1rem' }} >Subscribe</Button>
       <Button style={{ padding: '0.5rem 1rem' }} >Search</Button>

@@ -2,9 +2,12 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import { Box } from "@material-ui/core";
+import { Box, Link } from "@material-ui/core";
+import { getAllTopics } from '../../lib/api'
 
-export default function Topics() {
+
+export default function Topics(props) {
+  // console.log(props)
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -42,10 +45,18 @@ export default function Topics() {
             horizontal: "center"
           }}
       >
-        <MenuItem onClick={handleClose}>Topic 1</MenuItem>
-        <MenuItem onClick={handleClose}>Topic 2</MenuItem>
-        <MenuItem onClick={handleClose}>Topic 2</MenuItem>
+      
+      { props?.allTopics?.map((topic) => {
+        return(
+          <Link as={`/topics/${topic.node.name}`} href={`/topics/${topic.node.name}`} color='inherit' underline='none'>
+          <MenuItem onHover={handleClose} onClick={handleClose} style={{color:"white"}}>{topic.node.name}</MenuItem>
+          </Link>
+        );
+      })}
+        
       </Menu>
     </Box>
   );
 }
+
+

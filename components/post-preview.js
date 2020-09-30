@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: "hidden",
     texOverflow: "ellipsis",
     display: "-webkit-box",
-    '-webkit-line-clamp': 3, /* number of lines to show */
+    '-webkit-line-clamp': 5, /* number of lines to show */
     '-webkit-box-orient': 'vertical'
   },
 
@@ -85,7 +85,7 @@ export default function PostPreview({ singlePost }) {
 
   return (
     <Grid item xs={12} sm={6} md={4} lg={4}>
-      <Card className={classes.root} style={{ backgroundColor  : '#1E1F20' }}>
+      <Card className={classes.root} style={{ backgroundColor  : '#1E1F20'}}>
 
         {/** Author Photo Name and Date */}
         <CardHeader  style={{ padding: '1rem 0rem 0.5rem 1.5rem' }} avatar={
@@ -127,6 +127,7 @@ export default function PostPreview({ singlePost }) {
             className={classes.media}
             image={ThumbNail + singlePost.postdata.thumbnail.mediaItemUrl}
             title={singlePost.title}
+            style={{height: '320px' }}
           />
         </Container>
 

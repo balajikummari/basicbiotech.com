@@ -41,7 +41,7 @@ function ButtonAppBar(props) {
               Basic Biotech
            </Link>
           </Typography>
-          <AppBarCollapse />
+          <AppBarCollapse allTopics={props.allTopics}/>
       </Toolbar>
     </AppBar>
   );
