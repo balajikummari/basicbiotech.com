@@ -1,13 +1,18 @@
 import { Container } from '@material-ui/core';
+import styles from './post-body.module.css'
+
 import { StylesProvider } from '@material-ui/core/styles';
-import Parser from 'html-react-parser';
 
 
 export default function PostBody({ content }) {
   return (
-    <Container>
-    {Parser(content)}
-    {/* <RichText render={content} Component="title" /> */}
+    <Container maxWidth="md">
+     <div  style={{textAlign:"justify"}}>
+      <div
+        className={styles.content}
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
+    </div>
     </Container>
   )
 }

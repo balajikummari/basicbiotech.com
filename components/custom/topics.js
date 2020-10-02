@@ -2,7 +2,7 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import { Box, Link } from "@material-ui/core";
+import { Box, Link, Typography } from "@material-ui/core";
 import { getAllTopics } from '../../lib/api'
 
 
@@ -26,7 +26,11 @@ export default function Topics(props) {
         onClick={handleClick}
         style={{ padding: '0.5rem 1rem' }}
       >
-        Topics
+            <Typography variant='subtitle1'>
+      <Box fontWeight={400} >
+      Topics
+      </Box>
+      </Typography>
       </Button>
       
       <Menu

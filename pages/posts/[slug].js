@@ -12,6 +12,7 @@ import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
 import Tags from '../../components/tags'
+import { Box } from '@material-ui/core'
 
 export default function Post({ post, posts, preview,allTopics }) {
   const router = useRouter()
@@ -32,13 +33,14 @@ export default function Post({ post, posts, preview,allTopics }) {
             <article>
               <Head>
                 <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
+                  {post.title} | Basic Biotech
                 </title>
                 <meta
                   property="og:image"
                   content={post.featuredImage?.node?.sourceUrl}
                 />
               </Head>
+
               <PostHeader
                 title={post.title}
                 coverImage='https://vercel.wpengine.com/wp-content/uploads/2020/05/cover5.jpg'
@@ -46,7 +48,11 @@ export default function Post({ post, posts, preview,allTopics }) {
                 // author={post.author.node}
                 // categories={post.categories}
               />
+
+              <Box>
               <PostBody content={post.content} />
+              </Box>
+
               <footer>
                 {/* {post.tags.edges.length > 0 && <Tags tags={post.tags} />} */}
               </footer>

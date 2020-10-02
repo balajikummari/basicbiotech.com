@@ -28,19 +28,30 @@ const AppBarCollapse = props => (
   <Box  className={props.classes.root} >
     <ButtonAppBarCollapse >
       <Box  pl={2} pr ={5} pt={2} >
-        <Typography variant="subtitle1" color="Primary" style={{ paddingLeft: '1rem' }} >Topics</Typography>
+        <Typography variant="subtitle1" color="Primary" style={{ paddingLeft: '1rem' }} >
+        <Box fontWeight={700} >
+        Topics
+        </Box>
+        </Typography>
         { props?.allTopics?.map((topic) => {
         return(
           <Link as={`/topics/${topic.node.name}`} href={`/topics/${topic.node.name}`} color='inherit' underline='none'>
           <MenuItem dense>
-        <Typography variant="h6" color="initial">{topic.node.name}</Typography>
+        <Typography variant="h6" color="initial">
+        {topic.node.name}
+        
+        </Typography>
         </MenuItem>
           </Link>
         );
       })}
       </Box>
       <Box  pl={2} pr ={5} pt={3}>
-        <Typography variant="subtitle1" color="Primary" style={{ paddingLeft: '1rem' }} >About</Typography>
+        <Typography variant="subtitle1" color="Primary" style={{ paddingLeft: '1rem' }}>
+         <Box fontWeight={700} >
+         About
+        </Box>
+         </Typography>
         <MenuItem dense>
         <Typography variant="body1" color="initial"> About Basic Biotech</Typography>
         </MenuItem>
@@ -55,11 +66,29 @@ const AppBarCollapse = props => (
         </MenuItem>
       </Box>
     </ButtonAppBarCollapse>
-    <Box display='flex' className={props.classes.buttonBar} id="appbar-collapse">
+    <Box  display='flex' className={props.classes.buttonBar} id="appbar-collapse">
       <Topics style={{ padding: '0.5rem 1rem' }} allTopics ={props.allTopics}/>
-      <Button style={{ padding: '0.5rem 1rem' }} >About</Button>
-      <Button style={{ padding: '0.5rem 1rem' }} >Subscribe</Button>
-      <Button style={{ padding: '0.5rem 1rem' }} >Search</Button>
+      <Button style={{ padding: '0.5rem 1rem' }} >
+      <Typography variant='subtitle1'>
+      <Box fontWeight={400} >
+      About
+      </Box>
+      </Typography>
+      </Button>
+      <Button style={{ padding: '0.5rem 1rem' }} >
+      <Typography variant='subtitle1'>
+      <Box fontWeight={400} >
+      Subscribe
+      </Box>
+      </Typography>
+      </Button>
+      <Button style={{ padding: '0.5rem 1rem' }} >
+      <Typography variant='subtitle1'>
+      <Box fontWeight={400} >
+      Search
+      </Box>
+      </Typography>
+      </Button>
     </Box>
   </Box>
 );

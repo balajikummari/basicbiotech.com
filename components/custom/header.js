@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import AppBarCollapse from "./AppBarCollapse";
-import { Avatar, Link } from "@material-ui/core";
+import { Avatar, Box, Link } from "@material-ui/core";
 
 const styles = {
   root: {
@@ -33,14 +33,18 @@ function ButtonAppBar(props) {
         <Link as href='/' variant='inherit' underline="none">
           <Avatar aria-label="author" variant="square" style={{ margin: "0rem 1rem" }} src="/favicon/android-icon-192x192.png"  />
           </Link>
-          <Typography
-            variant="h6"
+         
+            <Link variant='h6' href='/' underline="none" variant='inherit'>
+            <Typography
+            variant="h5"
             className={classes.appTitle}
+            
           >
-            <Link variant='h6' href='/' underline="none">
-              Basic Biotech
-           </Link>
+          <Box fontWeight={700}>
+          Basic Biotech
+          </Box>
           </Typography>
+          </Link>
           <AppBarCollapse allTopics={props.allTopics}/>
       </Toolbar>
     </AppBar>

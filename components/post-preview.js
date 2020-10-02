@@ -2,6 +2,8 @@ import Date from '../components/date'
 import CoverImage from './cover-image'
 import Link from 'next/link'
 import { Box, Grid, Paper, Button, Container } from '@material-ui/core'
+import { parseISO, format } from 'date-fns'
+
 
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -17,10 +19,11 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import YouTubeIcon from '@material-ui/icons/YouTube';
-
+import TwitterIcon from '@material-ui/icons/Twitter';
 
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
+import { Twitter } from '@material-ui/icons';
 
 
 
@@ -70,31 +73,32 @@ const useStyles = makeStyles((theme) => ({
     '-webkit-box-orient': 'vertical'
   },
 
-  tag:{
-    fontSize : '0.8rem',
+  tag: {
+    fontSize: '0.8rem',
     height: '1.3rem',
-    }
+  }
 
 }));
 
 export default function PostPreview({ singlePost }) {
   const classes = useStyles();
+  const date = parseISO(singlePost.dateGmt)
   const cdnAuthor = "https://mldspy5by2vi.i.optimole.com/w:50/h:auto/q:auto/";
   const ThumbNail = "https://mldspy5by2vi.i.optimole.com/w:400/h:auto/q:auto/";
 
 
   return (
     <Grid item xs={12} sm={6} md={4} lg={4}>
-      <Card className={classes.root} style={{ backgroundColor  : '#1E1F20'}}>
+      <Card className={classes.root} style={{ backgroundColor: '#1E1F20' }}>
 
         {/** Author Photo Name and Date */}
-        <CardHeader  style={{ padding: '1rem 0rem 0.5rem 1.5rem' }} avatar={
-            <Avatar aria-label="author"
-              className={classes.large}
-              alt={singlePost.postdata.authorname}
-              src={cdnAuthor + singlePost.postdata.authorimage.mediaItemUrl} />}
+        <CardHeader style={{ padding: '1rem 0rem 0.5rem 1.5rem' }} avatar={
+          <Avatar aria-label="author"
+            className={classes.large}
+            alt={singlePost.postdata.authorname}
+            src={cdnAuthor + singlePost.postdata.authorimage.mediaItemUrl} />}
           title={singlePost.postdata.authorname}
-          subheader="September 14, 2016"
+          subheader={format(date, 'LLLL	d, yyyy')}
         />
 
         {/** Tags  */}
@@ -107,7 +111,12 @@ export default function PostPreview({ singlePost }) {
               return (
                 <Grid item >
                   <Button size="small" variant="contained" color="primary" className={classes.tag} disableElevation>
-                    {categ.name}
+                    <Typography variant='body2'>
+                      <Box fontWeight={800} >
+                        {categ.name}
+                      </Box>
+                    </Typography>
+
                   </Button>
                 </Grid>)
             })}
@@ -127,27 +136,27 @@ export default function PostPreview({ singlePost }) {
             className={classes.media}
             image={ThumbNail + singlePost.postdata.thumbnail.mediaItemUrl}
             title={singlePost.title}
-            style={{height: '320px' }}
+            style={{ height: '320px' }}
           />
         </Container>
 
 
-       
+
         <CardContent style={{ padding: '1rem 1.5rem' }}>
 
-          { (
+          {(
             (singlePost.postdata.audiolength != null)
-            && 
+            &&
             (singlePost.postdata.audiolength > 0)
-          )? 
-          <Button className={classes.audioButton}
-           startIcon={<YouTubeIcon style={{ fontSize: '2rem' }} />} 
-           size="small" 
-           variant="contained"
-           color="primary" 
-           disableElevation>
-            {singlePost.postdata.audiolength + ' Minutes Listen'}
-          </Button>:<span></span>
+          ) ?
+            <Button className={classes.audioButton}
+              startIcon={<YouTubeIcon style={{ fontSize: '2rem' }} />}
+              size="small"
+              variant="contained"
+              color="primary"
+              disableElevation>
+              {singlePost.postdata.audiolength + ' Minutes Listen'}
+            </Button> : <span></span>
           }
 
           <Typography variant="body2">
@@ -157,73 +166,89 @@ export default function PostPreview({ singlePost }) {
           </Typography>
         </CardContent>
 
-        <CardActions style={{ padding: '1rem 1.5rem', color : 'white',justify:'space-between' }} disableSpacing>
-          
+        <CardActions style={{ padding: '1rem 1.5rem', color: 'white', justify: 'space-between' }} disableSpacing>
+
           <Box>
-          {
-          singlePost.postdata.sourcename?
-          <Link  href={ singlePost.postdata.sourcelink}>
-          <Button variant="outlined" color="primary" >
-          <Typography variant="body2"  style={{textTransform: 'none'}} >
-          Continue Reading {" at "+singlePost.postdata.sourcename}
-          </Typography>
-          </Button>
-          </Link> 
-          :
-          <Link as={`/posts/${singlePost.slug}`} href="/posts/[slug]">
-          <Button variant="outlined" color="primary" >
-          <Typography variant="body2"  style={{textTransform: 'none'}} >
-          Continue Reading 
-          </Typography>
-          </Button>
-          </Link> 
-          } 
+            {
+              singlePost.postdata.sourcename ?
+                <Link href={singlePost.postdata.sourcelink}>
+                  <Button variant="outlined" color="primary" >
+                    <Typography variant="body2" style={{ textTransform: 'none' }} >
+                    <Box fontWeight={800} >
+                      Continue Reading {" at " + singlePost.postdata.sourcename}
+                      </Box>
+                    </Typography>
+                  </Button>
+                </Link>
+                :
+                <Link as={`/posts/${singlePost.slug}`} href="/posts/[slug]">
+                  <Button variant="outlined" color="primary" >
+                    <Typography variant="body2" style={{ textTransform: 'none' }} >
+                    <Box fontWeight={800} >
+                    Continue Reading
+                      </Box>
+                  </Typography>
+                  </Button>
+                </Link>
+            }
           </Box>
 
-          <Box style={{marginLeft:'auto'}}>
+          <Box style={{ marginLeft: 'auto' }}>
+            {/**Instagram  */}
 
-          {
-          singlePost.socialLinks.facebook?
-          <a href = {singlePost.socialLinks.facebook} target="_blank">
-          <IconButton aria-label="share to Facebook" style={{padding:'0.3rem'}}>
-            <FacebookIcon />
-          </IconButton>
-          </a>
-          :<span/>
-          }
-
-          {
-          singlePost.socialLinks.facebook?
-          <a href = {singlePost.socialLinks.instagram} target="_blank">
-          <IconButton aria-label="share to instagram" style={{padding:'0.3rem'}}>
-            <InstagramIcon />
-          </IconButton>
-          </a>
-          :<span/>
-          }
+            {
+              singlePost.socialLinks.instagram ?
+                <a href={singlePost.socialLinks.instagram} target="_blank">
+                  <IconButton aria-label="share to instagram" style={{ padding: '0.3rem' }}>
+                    <InstagramIcon />
+                  </IconButton>
+                </a>
+                : <span />
+            }
 
 
-          
-          {
-          singlePost.socialLinks.linkedin?
-          <a href = {singlePost.socialLinks.linkedin} target="_blank">
-          <IconButton aria-label="share to linkedin" style={{padding:'0.3rem'}}>
-            <LinkedInIcon />
-          </IconButton>
-          </a>
-          :<span/>
-          }
-          
-          {
-          singlePost.socialLinks.youtube?
-          <a href = {singlePost.socialLinks.youtube} target="_blank">
-          <IconButton aria-label="share to youtube" style={{padding:'0.3rem'}}>
-            <YouTubeIcon />
-          </IconButton>
-          </a>
-          :<span/>
-          }
-          
+            {
+              singlePost.socialLinks.twitter ?
+                <a href={singlePost.socialLinks.twitter} target="_blank">
+                  <IconButton aria-label="share to Facebook" style={{ padding: '0.3rem' }}>
+                    <TwitterIcon />
+                  </IconButton>
+                </a>
+                : <span />
+            }
+
+            {
+              singlePost.socialLinks.linkedin ?
+                <a href={singlePost.socialLinks.linkedin} target="_blank">
+                  <IconButton aria-label="share to instagram" style={{ padding: '0.3rem' }}>
+                    <LinkedInIcon />
+                  </IconButton>
+                </a>
+                : <span />
+            }
+
+
+
+            {
+              singlePost.socialLinks.facebook ?
+                <a href={singlePost.socialLinks.facebook} target="_blank">
+                  <IconButton aria-label="share to linkedin" style={{ padding: '0.3rem' }}>
+                    <FacebookIcon />
+                  </IconButton>
+                </a>
+                : <span />
+            }
+
+            {
+              singlePost.socialLinks.youtube ?
+                <a href={singlePost.socialLinks.youtube} target="_blank">
+                  <IconButton aria-label="share to youtube" style={{ padding: '0.3rem' }}>
+                    <YouTubeIcon />
+                  </IconButton>
+                </a>
+                : <span />
+            }
+
           </Box>
         </CardActions>
       </Card>
