@@ -92,7 +92,7 @@ export default function PostPreview({ singlePost }) {
     <Grid item xs={12} sm={6} md={4} lg={4}>
       <Card className={classes.root} style={{ backgroundColor: '#1E1F20' }}>
 
-       <CardActionArea  as={`/authors/${singlePost.postdata.customauthor.customauthor.slug}`} href="/authors/[slug]">
+       <CardActionArea  as={`/authors/${singlePost.postdata.customauthor.slug}`} href={`/authors/${singlePost.postdata.customauthor.slug}`} >
         {/** Author Photo Name and Date */}
         <CardHeader style={{ padding: '1rem 0rem 0.5rem 1.5rem' }} avatar={
         <Link as={`/authors/${singlePost.postdata.customauthor.customauthor.slug}`} href="/authors/[slug]" variant='inherit'>
