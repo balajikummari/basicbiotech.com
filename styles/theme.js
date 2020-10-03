@@ -6,7 +6,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const theme = createMuiTheme({
   typography: {
     fontFamily: [
-      'Open Sans',
+      'Lato',
       'sans-serif',
     ].join(','),
   },
