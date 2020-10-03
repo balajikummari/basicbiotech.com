@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import MoreStories from '../../components/more-stories'
 import Layout from '../../components/layout'
-import { getAllPostsForHome,getAllTopics } from '../../lib/api'
+import { getAllAuthors, getAllPostsForHome, getAllPostsForTopic,getAllTopics } from '../../lib/api'
 import Header from '../../components/custom/header'
 import { Box, Container, IconButton } from '@material-ui/core'
 
-export default function Author(props) {
-  const postPreviewContent = props?.allPosts?.edges
+export default function Topic(props) {
+  const postPreviewContent = props.filteredPosts
 
   //console.log(postPreviewContent)
 
@@ -29,19 +29,26 @@ export default function Author(props) {
 }
 
 
-export async  function getStaticProps() {
+export async  function getStaticProps({ params}) {
    const allPosts = await getAllPostsForHome()
+   const postPreviewContent = allPosts?.edges
+
+  const filteredPosts = postPreviewContent?.map((node) => 
+  node.node.postdata.customauthor.slug == params.slug? node :null)
+
+  //console.log( 'filteredPosts data ::' , filteredPosts)
+
    const allTopics = await getAllTopics()
   return {
-    props: { allPosts, allTopics},
+    props: { filteredPosts, allTopics},
     revalidate: 60
   }
 }
 
 export async function getStaticPaths() {
-  const topics = await getAllTopics()
+  const authors = await getAllAuthors()
   return {
-    paths: topics.map(( topic ) => `/authors/${topic.node.name}`) || [],
+    paths: authors.map(( author ) => `/authors/${author.slug}`) || [],
     fallback: true,
   }
 }

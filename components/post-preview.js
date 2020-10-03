@@ -13,6 +13,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
+import CardActionArea from '@material-ui/core/CardActionArea';
 
 import IconButton from '@material-ui/core/IconButton';
 import FacebookIcon from '@material-ui/icons/Facebook';
@@ -91,15 +92,21 @@ export default function PostPreview({ singlePost }) {
     <Grid item xs={12} sm={6} md={4} lg={4}>
       <Card className={classes.root} style={{ backgroundColor: '#1E1F20' }}>
 
+       <CardActionArea  as={`/authors/${singlePost.postdata.customauthor.customauthor.slug}`} href="/authors/[slug]">
         {/** Author Photo Name and Date */}
         <CardHeader style={{ padding: '1rem 0rem 0.5rem 1.5rem' }} avatar={
+        <Link as={`/authors/${singlePost.postdata.customauthor.customauthor.slug}`} href="/authors/[slug]" variant='inherit'>
           <Avatar aria-label="author"
             className={classes.large}
-            alt={singlePost.postdata.authorname}
-            src={cdnAuthor + singlePost.postdata.authorimage.mediaItemUrl} />}
-          title={singlePost.postdata.authorname}
+            alt={singlePost.postdata.customauthor.customauthor.fullName}
+            src={cdnAuthor + singlePost.postdata.customauthor.customauthor.profilePhoto.mediaItemUrl}
+             />
+          </Link>
+            }
+          title={singlePost.postdata.customauthor.customauthor.fullName}
           subheader={format(date, 'LLLL	d, yyyy')}
         />
+        </CardActionArea>
 
         {/** Tags  */}
         <Container style={{ padding: '0.3rem 0rem 0.5rem 1.5rem' }}>
@@ -123,6 +130,11 @@ export default function PostPreview({ singlePost }) {
           </Grid>
         </Container>
 
+
+
+
+
+        <CardActionArea >
         {/** Title  */}
         <Container>
           <Typography variant="h5" color="initial" className={classes.title} >
@@ -165,6 +177,7 @@ export default function PostPreview({ singlePost }) {
             </Box>
           </Typography>
         </CardContent>
+        </CardActionArea>
 
         <CardActions style={{ padding: '1rem 1.5rem', color: 'white', justify: 'space-between' }} disableSpacing>
 
