@@ -148,7 +148,7 @@ export default function PostPreview({ singlePost }) {
             className={classes.media}
             image={ThumbNail + singlePost.postdata.thumbnail.mediaItemUrl}
             title={singlePost.title}
-            style={{ height: '320px' }}
+            // style={{ height: '320px' }}
           />
         </Container>
 

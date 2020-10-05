@@ -23,9 +23,9 @@ export default function Post({ post, posts, preview,allTopics }) {
   }
 
   return (
-    <Layout preview={preview}>
+    <Layout preview={preview} allTopics={allTopics}>
       <Container>
-        <Header allTopics={allTopics} />
+        {/* <Header allTopics={allTopics} /> */}
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
@@ -38,7 +38,7 @@ export default function Post({ post, posts, preview,allTopics }) {
                 <meta
                   property="og:image"
                   content={post.featuredImage?.node?.sourceUrl}
-                />
+                /> 
               </Head>
 
               <PostHeader
@@ -53,9 +53,9 @@ export default function Post({ post, posts, preview,allTopics }) {
               <PostBody content={post.content} />
               </Box>
 
-              <footer>
+              {/* <footer> */}
                 {/* {post.tags.edges.length > 0 && <Tags tags={post.tags} />} */}
-              </footer>
+              {/* </footer> */}
             </article>
 
             <SectionSeparator />

@@ -18,7 +18,7 @@ export default function Index({ allPosts: { edges },allTopics }) {
           <title>Basic Biotech </title>
         </Head>
   
-        <Box  mt={0} pt ={12} style={{ backgroundColor: 'black' }}>
+        <Box  mt={0} pt ={12} >
           <Container >
               {postPreviewContent.length > 0 && <MoreStories posts={postPreviewContent} />}
           </Container>

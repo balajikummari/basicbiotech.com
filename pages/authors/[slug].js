@@ -12,13 +12,13 @@ export default function Topic(props) {
 
   return (
     <>
-      <Layout >
+      <Layout allTopics={props.allTopics} >
         <Head>
           <title>Basic Biotech </title>
         </Head>
-        <Header allTopics={props.allTopics}/>
+        {/* <Header allTopics={props.allTopics}/> */}
 
-        <Box  mt={0} pt ={12} style={{ backgroundColor: 'black' }}>
+        <Box  mt={0} pt ={12} >
           <Container >
               {postPreviewContent?.length > 0 && <MoreStories posts={postPreviewContent} />}
           </Container>

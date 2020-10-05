@@ -11,7 +11,7 @@ export default function Layout({ children,allTopics }) {
       <div>
         <main>{children}</main>
       </div>
-      <Footer />                                                  { /*TODO : Change Footer*/}
+     {/* <Footer/> */}
     </>
   )
 }

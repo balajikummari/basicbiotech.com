@@ -5,12 +5,12 @@ export default function MoreStories({ posts }) {
   // TODO : Home Body Styling
  
   return (
-    <section>
+    // <section>
       <Grid container spacing={7} >
         {posts.map(({ node }) => (
           <PostPreview singlePost = {node} />
         ))}
       </Grid>
-    </section>
+   // </section>
   );
 }

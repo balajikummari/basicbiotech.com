@@ -1,4 +1,4 @@
-import { Avatar, Box, Container, Grid, Link } from '@material-ui/core'
+import { Avatar, Box, Card, Container, Grid, Link, Paper } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 
 import FacebookIcon from '@material-ui/icons/Facebook';
@@ -9,8 +9,9 @@ import IconButton from '@material-ui/core/IconButton';
 
 export default function Footer() {
   return (
-    <footer >
+    <Card  style={{ backgroundColor: '#1E1F20', marginTop:'2.5rem' }} >
       <Container>
+      
         <Box py={5}>
           <Grid
             container
@@ -84,6 +85,6 @@ export default function Footer() {
           </Grid>
         </Box>
       </Container>
-    </footer>
+      </Card>
   )
 }
