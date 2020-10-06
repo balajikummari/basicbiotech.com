@@ -1,30 +1,17 @@
-import Date from '../components/date'
-import CoverImage from './cover-image'
+import { Box, Button, Container, Grid } from '@material-ui/core'
+import Card from '@material-ui/core/Card'
+import CardActionArea from '@material-ui/core/CardActionArea'
+import CardActions from '@material-ui/core/CardActions'
+import CardContent from '@material-ui/core/CardContent'
+import CardMedia from '@material-ui/core/CardMedia'
+import { makeStyles } from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
+import { parseISO } from 'date-fns'
 import Link from 'next/link'
-import { Box, Grid, Paper, Button, Container } from '@material-ui/core'
-import { parseISO, format } from 'date-fns'
-
-
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Avatar from '@material-ui/core/Avatar';
-import Typography from '@material-ui/core/Typography';
-import CardActionArea from '@material-ui/core/CardActionArea';
-
-import IconButton from '@material-ui/core/IconButton';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import YouTubeIcon from '@material-ui/icons/YouTube';
-import TwitterIcon from '@material-ui/icons/Twitter';
-
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import { Twitter } from '@material-ui/icons';
+import AudioButton from './audioButton'
+import AuthorHead from './authorHead'
+import Categories from './categories'
+import SocialLinks from './socialLinks'
 
 
 
@@ -38,10 +25,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '56.25%', // 16:9
   },
 
-  large: {
-    // width: theme.spacing(6),
-    // height: theme.spacing(6),
-  },
+
 
   title: {
     margin: '0.5rem 0px 0.7rem 0px',
@@ -50,13 +34,7 @@ const useStyles = makeStyles((theme) => ({
     height: '3.8rem'
   },
 
-  audioButton: {
-    height: '1.6rem',
-    width: "100%",
-    justifyContent: "right",
-    margin: '-0.5rem 0rem 0.7rem 0rem',
-    textTransform: 'lowercase',
-  },
+
 
   twoLinetext: {
     overflow: "hidden",
@@ -92,92 +70,47 @@ export default function PostPreview({ singlePost }) {
     <Grid item xs={12} sm={6} md={4} lg={4}>
       <Card className={classes.root} style={{ backgroundColor: '#1E1F20' }}>
 
-       <CardActionArea  as={`/authors/${singlePost.postdata.customauthor.slug}`} href={`/authors/${singlePost.postdata.customauthor.slug}`} >
-        {/** Author Photo Name and Date */}
-        <CardHeader style={{ padding: '1rem 0rem 0.5rem 1.5rem' }} avatar={
-        <Link as={`/authors/${singlePost.postdata.customauthor.customauthor.slug}`} href="/authors/[slug]" variant='inherit'>
-          <Avatar aria-label="author"
-            className={classes.large}
-            alt={singlePost.postdata.customauthor.customauthor.fullName}
-            src={cdnAuthor + singlePost.postdata.customauthor.customauthor.profilePhoto.mediaItemUrl}
-             />
-          </Link>
-            }
-          title={singlePost.postdata.customauthor.customauthor.fullName}
-          subheader={format(date, 'LLLL	d, yyyy')}
-        />
-        </CardActionArea>
+        <AuthorHead dateGmt={singlePost.dateGmt} customauthor={singlePost.postdata.customauthor} />
 
-        {/** Tags  */}
-        <Container style={{ padding: '0.3rem 0rem 0.5rem 1.5rem' }}>
-          <Grid container
-            direction="row"
-            justify="flex-start"
-            spacing={1}>
-            {singlePost.postdata.category.map((categ) => {
-              return (
-                <Grid item >
-                  <Button size="small" variant="contained" color="primary" className={classes.tag} disableElevation>
-                    <Typography variant='body2'>
-                      <Box fontWeight={800} >
-                        {categ.name}
-                      </Box>
-                    </Typography>
-
-                  </Button>
-                </Grid>)
-            })}
-          </Grid>
+        <Container >
+          <Box py='0.1rem'>
+            <Categories category={singlePost.postdata.category} />
+          </Box>
         </Container>
-
-
-
 
 
         <CardActionArea >
-        {/** Title  */}
-        <Container>
-          <Typography variant="h5" color="initial" className={classes.title} >
-            <Box className={classes.twoLinetext} lineHeight={1.2} > {singlePost.title}</Box>
-          </Typography>
-        </Container>
+          {/** Title  */}
+          <Container>
+            <Typography variant="h5" color="initial" className={classes.title} >
+              <Box className={classes.twoLinetext} lineHeight={1.2} > {singlePost.title}</Box>
+            </Typography>
+          </Container>
 
-        {/** Thubnail Image*/}
-        <Container>
-          <CardMedia
-            className={classes.media}
-            image={ThumbNail + singlePost.postdata.thumbnail.mediaItemUrl}
-            title={singlePost.title}
-            // style={{ height: '320px' }}
-          />
-        </Container>
-
+          {/** Thubnail Image*/}
+          <Container>
+            <CardMedia
+              className={classes.media}
+              image={ThumbNail + singlePost.postdata.thumbnail.mediaItemUrl}
+              title={singlePost.title}
+            />
+          </Container>
+        </CardActionArea>
 
 
         <CardContent style={{ padding: '1rem 1.5rem' }}>
 
-          {(
-            (singlePost.postdata.audiolength != null)
-            &&
-            (singlePost.postdata.audiolength > 0)
-          ) ?
-            <Button className={classes.audioButton}
-              startIcon={<YouTubeIcon style={{ fontSize: '2rem' }} />}
-              size="small"
-              variant="contained"
-              color="primary"
-              disableElevation>
-              {singlePost.postdata.audiolength + ' Minutes Listen'}
-            </Button> : <span></span>
-          }
+          <AudioButton postdata={singlePost.postdata} />
 
           <Typography variant="body2">
             <Box className={classes.threeLinetext}  >
               {singlePost.postdata.shortdescription}
             </Box>
           </Typography>
+
         </CardContent>
-        </CardActionArea>
+
+
 
         <CardActions style={{ padding: '1rem 1.5rem', color: 'white', justify: 'space-between' }} disableSpacing>
 
@@ -187,8 +120,8 @@ export default function PostPreview({ singlePost }) {
                 <Link href={singlePost.postdata.sourcelink}>
                   <Button variant="outlined" color="primary" >
                     <Typography variant="body2" style={{ textTransform: 'none' }} >
-                    <Box fontWeight={800} >
-                      Continue Reading {" at " + singlePost.postdata.sourcename}
+                      <Box fontWeight={800} >
+                        Continue Reading {" at " + singlePost.postdata.sourcename}
                       </Box>
                     </Typography>
                   </Button>
@@ -197,73 +130,23 @@ export default function PostPreview({ singlePost }) {
                 <Link as={`/posts/${singlePost.slug}`} href="/posts/[slug]">
                   <Button variant="outlined" color="primary" >
                     <Typography variant="body2" style={{ textTransform: 'none' }} >
-                    <Box fontWeight={800} >
-                    Continue Reading
+                      <Box fontWeight={800} >
+                        Continue Reading
                       </Box>
-                  </Typography>
+                    </Typography>
                   </Button>
                 </Link>
             }
           </Box>
 
           <Box style={{ marginLeft: 'auto' }}>
-            {/**Instagram  */}
+            <SocialLinks socialLinks={singlePost.socialLinks} />
 
-            {
-              singlePost.socialLinks.instagram ?
-                <a href={singlePost.socialLinks.instagram} target="_blank">
-                  <IconButton aria-label="share to instagram" style={{ padding: '0.3rem' }}>
-                    <InstagramIcon />
-                  </IconButton>
-                </a>
-                : <span />
-            }
-
-
-            {
-              singlePost.socialLinks.twitter ?
-                <a href={singlePost.socialLinks.twitter} target="_blank">
-                  <IconButton aria-label="share to Facebook" style={{ padding: '0.3rem' }}>
-                    <TwitterIcon />
-                  </IconButton>
-                </a>
-                : <span />
-            }
-
-            {
-              singlePost.socialLinks.linkedin ?
-                <a href={singlePost.socialLinks.linkedin} target="_blank">
-                  <IconButton aria-label="share to instagram" style={{ padding: '0.3rem' }}>
-                    <LinkedInIcon />
-                  </IconButton>
-                </a>
-                : <span />
-            }
-
-
-
-            {
-              singlePost.socialLinks.facebook ?
-                <a href={singlePost.socialLinks.facebook} target="_blank">
-                  <IconButton aria-label="share to linkedin" style={{ padding: '0.3rem' }}>
-                    <FacebookIcon />
-                  </IconButton>
-                </a>
-                : <span />
-            }
-
-            {
-              singlePost.socialLinks.youtube ?
-                <a href={singlePost.socialLinks.youtube} target="_blank">
-                  <IconButton aria-label="share to youtube" style={{ padding: '0.3rem' }}>
-                    <YouTubeIcon />
-                  </IconButton>
-                </a>
-                : <span />
-            }
+           
 
           </Box>
         </CardActions>
+       
       </Card>
     </Grid >
 

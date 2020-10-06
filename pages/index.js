@@ -4,7 +4,6 @@ import Layout from '../components/layout'
 import { getAllPostsForHome,getAllTopics } from '../lib/api'
 import Header from '../components/custom/header'
 import { Box, Container, IconButton } from '@material-ui/core'
-
 export default function Index({ allPosts: { edges },allTopics }) {
 
 
@@ -20,6 +19,7 @@ export default function Index({ allPosts: { edges },allTopics }) {
   
         <Box  mt={0} pt ={12} >
           <Container >
+          
               {postPreviewContent.length > 0 && <MoreStories posts={postPreviewContent} />}
           </Container>
         </Box>

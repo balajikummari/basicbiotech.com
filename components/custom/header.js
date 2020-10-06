@@ -1,13 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
+import { Avatar, Box, Link } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
+import { withStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+import PropTypes from "prop-types";
+import React from "react";
 import AppBarCollapse from "./AppBarCollapse";
-import { Avatar, Box, Link } from "@material-ui/core";
 
 const styles = {
   root: {
@@ -38,7 +36,7 @@ function ButtonAppBar(props) {
             <Typography
             variant="h5"
             className={classes.appTitle}
-            
+            color='textPrimary'
           >
           <Box fontWeight={700}>
           Basic Biotech

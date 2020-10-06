@@ -1,9 +1,8 @@
-import { createMuiTheme } from '@material-ui/core/styles';
-// import DINAlternateBoldwoff from '../public/fonts/DINAlternate-Bold.woff';
+import { createMuiTheme,responsiveFontSizes  } from '@material-ui/core/styles';
 
 
 // Create a theme instance.
-const theme = createMuiTheme({
+let theme = createMuiTheme({
   typography: {
     fontFamily: [
       'Latog',
@@ -11,13 +10,7 @@ const theme = createMuiTheme({
     ].join(','),
   },
 
-  // overrides: {
-  //   MuiCssBaseline: {
-  //     '@global': {
-  //       '@font-face': [DINAlternateBold],
-  //     },
-  //   },
-  // },
+
 
   palette: {
     type: 'dark',
@@ -35,6 +28,7 @@ const theme = createMuiTheme({
     }
     
   },
-});
+ });
+ theme = responsiveFontSizes(theme);
 
 export default theme;

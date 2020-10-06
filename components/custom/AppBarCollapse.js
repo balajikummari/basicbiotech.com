@@ -1,10 +1,9 @@
 
 import React from "react";
-import { Box, Button, Grid, MenuItem, Typography } from "@material-ui/core";
+import { Box, Button, Grid, Link, MenuItem, Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import ButtonAppBarCollapse from "./ButtonAppBarCollapse";
 import Topics from "./topics";
-import Link from "next/link";
 
 const styles = theme => ({
   root: {
@@ -75,6 +74,11 @@ const AppBarCollapse = props => (
       </Box>
       </Typography>
       </Button>
+
+      <Link target="_blank" href='https://mailchi.mp/51353ed72b7e/subscribe' 
+      variant='inherit'
+      color='inherit'
+      underline='none' >
       <Button style={{ padding: '0.5rem 1rem' }} >
       <Typography variant='subtitle1'>
       <Box fontWeight={400} >
@@ -82,6 +86,9 @@ const AppBarCollapse = props => (
       </Box>
       </Typography>
       </Button>
+      </Link>
+
+
       <Button style={{ padding: '0.5rem 1rem' }} >
       <Typography variant='subtitle1'>
       <Box fontWeight={400} >

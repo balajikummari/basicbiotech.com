@@ -1,4 +1,4 @@
-import { Grid } from "@material-ui/core";
+import { Box, Grid } from "@material-ui/core";
 import PostPreview from "../components/post-preview";
 
 export default function MoreStories({ posts }) {
@@ -6,11 +6,13 @@ export default function MoreStories({ posts }) {
  
   return (
     // <section>
+    
       <Grid container spacing={7} >
         {posts.map(({ node }) => (
           <PostPreview singlePost = {node} />
         ))}
       </Grid>
+      
    // </section>
   );
 }
