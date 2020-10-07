@@ -2,16 +2,14 @@ import { createMuiTheme,responsiveFontSizes  } from '@material-ui/core/styles';
 
 
 // Create a theme instance.
-let theme = createMuiTheme({
+
+let theme = {
   typography: {
     fontFamily: [
       'Latog',
       'sans-serif',
     ].join(','),
   },
-
-
-
   palette: {
     type: 'dark',
     primary: {
@@ -27,8 +25,26 @@ let theme = createMuiTheme({
       }
     }
     
-  },
- });
- theme = responsiveFontSizes(theme);
+  }
+}
 
-export default theme;
+ //theme = responsiveFontSizes(theme);
+
+
+export const darkTheme = createMuiTheme({
+  ...theme,
+  palette:{
+    ...theme.palette,
+    type:'dark'
+  }
+})
+
+export const lightTheme = createMuiTheme({
+  ...theme,
+  palette:{
+    ...theme.palette,
+    type:'light'
+  }
+})
+
+

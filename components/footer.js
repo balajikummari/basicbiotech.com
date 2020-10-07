@@ -9,7 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 
 export default function Footer() {
   return (
-    <Card  style={{ backgroundColor: '#1E1F20', marginTop:'2.5rem' }} >
+    <Card  style={{ marginTop:'2.5rem' }} elevation={20}>
       <Container>
       
         <Box py={5}>

@@ -53,7 +53,11 @@ export default function Topics(props) {
       { props?.allTopics?.map((topic) => {
         return(
           <Link as={`/topics/${topic.node.name}`} href={`/topics/${topic.node.name}`} color='inherit' underline='none'>
-          <MenuItem onHover={handleClose} onClick={handleClose} style={{color:"white"}}>{topic.node.name}</MenuItem>
+          <MenuItem onHover={handleClose} onClick={handleClose} >
+          <Typography>
+          {topic.node.name}
+          </Typography>
+          </MenuItem>
           </Link>
         );
       })}

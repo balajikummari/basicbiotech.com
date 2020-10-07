@@ -1,5 +1,5 @@
 
-import { Box} from '@material-ui/core'
+import { Box } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -22,66 +22,68 @@ export default function SocialLinks({
   //console.log('post :', post)
   const classes = useStyles();
 
-  return ( 
+  return (
 
-        <Box style={{display: 'flex', justifyContent: 'flex-end', marginLeft: 'auto', marginTop: 'auto' }}>
-            {/**Instagram  */}
-
-            {
-               socialLinks.instagram ?
-                <a href={ socialLinks.instagram} target="_blank">
-                  <IconButton aria-label="share to instagram" style={{ padding: '0.3rem' }}>
-                    <InstagramIcon />
-                  </IconButton>
-                </a>
-                : <span />
-            }
+    <Box style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', marginLeft: 'auto', marginTop: 'auto' }}>
+      <Box style={{ display: 'flex', justifyContent: 'flex-end', marginLeft: 'auto', marginTop: 'auto' }}>
+        {/**Instagram  */}
 
 
-            {
-               socialLinks.twitter ?
-                <a href={ socialLinks.twitter} target="_blank">
-                  <IconButton aria-label="share to Facebook" style={{ padding: '0.3rem' }}>
-                    <TwitterIcon />
-                  </IconButton>
-                </a>
-                : <span />
-            }
-
-            {
-               socialLinks.linkedin ?
-                <a href={ socialLinks.linkedin} target="_blank">
-                  <IconButton aria-label="share to instagram" style={{ padding: '0.3rem' }}>
-                    <LinkedInIcon />
-                  </IconButton>
-                </a>
-                : <span />
-            }
+        {
+          socialLinks.instagram ?
+            <a href={socialLinks.instagram} target="_blank">
+              <IconButton aria-label="share to instagram" style={{ padding: '0.3rem' }}>
+                <InstagramIcon />
+              </IconButton>
+            </a>
+            : <span />
+        }
 
 
+        {
+          socialLinks.twitter ?
+            <a href={socialLinks.twitter} target="_blank">
+              <IconButton aria-label="share to Facebook" style={{ padding: '0.3rem' }}>
+                <TwitterIcon />
+              </IconButton>
+            </a>
+            : <span />
+        }
 
-            {
-               socialLinks.facebook ?
-                <a href={ socialLinks.facebook} target="_blank">
-                  <IconButton aria-label="share to linkedin" style={{ padding: '0.3rem' }}>
-                    <FacebookIcon />
-                  </IconButton>
-                </a>
-                : <span />
-            }
+        {
+          socialLinks.linkedin ?
+            <a href={socialLinks.linkedin} target="_blank">
+              <IconButton aria-label="share to instagram" style={{ padding: '0.3rem' }}>
+                <LinkedInIcon />
+              </IconButton>
+            </a>
+            : <span />
+        }
+      </Box>
+      <Box style={{ display: 'flex', justifyContent: 'flex-end', marginLeft: 'auto', marginTop: 'auto' }}>
 
-            {
-               socialLinks.youtube ?
-                <a href={ socialLinks.youtube} target="_blank">
-                  <IconButton aria-label="share to youtube" style={{ padding: '0.3rem' }}>
-                    <YouTubeIcon />
-                  </IconButton>
-                </a>
-                : <span />
-            }
+        {
+          socialLinks.facebook ?
+            <a href={socialLinks.facebook} target="_blank">
+              <IconButton aria-label="share to linkedin" style={{ padding: '0.3rem' }}>
+                <FacebookIcon />
+              </IconButton>
+            </a>
+            : <span />
+        }
 
-          </Box>
+        {
+          socialLinks.youtube ?
+            <a href={socialLinks.youtube} target="_blank">
+              <IconButton aria-label="share to youtube" style={{ padding: '0.3rem' }}>
+                <YouTubeIcon />
+              </IconButton>
+            </a>
+            : <span />
+        }
 
-     
+      </Box>
+    </Box>
+
   )
 }

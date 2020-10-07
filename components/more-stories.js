@@ -6,12 +6,13 @@ export default function MoreStories({ posts }) {
  
   return (
     // <section>
-    
-      <Grid container spacing={7} >
+    <Box px={4}>
+      <Grid container spacing={5} >
         {posts.map(({ node }) => (
-          <PostPreview singlePost = {node} />
+          <PostPreview key={node.slug} singlePost = {node} />
         ))}
       </Grid>
+      </Box>
       
    // </section>
   );

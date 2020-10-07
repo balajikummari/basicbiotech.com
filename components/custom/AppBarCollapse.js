@@ -88,14 +88,14 @@ const AppBarCollapse = props => (
       </Button>
       </Link>
 
-
+{/* 
       <Button style={{ padding: '0.5rem 1rem' }} >
       <Typography variant='subtitle1'>
       <Box fontWeight={400} >
       Search
       </Box>
       </Typography>
-      </Button>
+      </Button> */}
     </Box>
   </Box>
 );

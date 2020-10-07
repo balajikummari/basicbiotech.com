@@ -3,11 +3,12 @@ import styles from './post-body.module.css'
 import { DiscussionEmbed } from "disqus-react"
 import SocialLinks from './socialLinks';
 import Categories from './categories';
+import { useTheme } from '@material-ui/core/styles';
 
 
 export default function PostBody({ content, slug, socialLinks, category }) {
-
-  console.log('PostBody slug ::', slug);
+  const theme = useTheme();
+  //console.log('PostBody slug ::', slug);
   const disqusShortname = "basic-biotech"
   const disqusConfig = {
     url: "http://basicbiotech.com/posts/" + slug,
@@ -36,7 +37,7 @@ export default function PostBody({ content, slug, socialLinks, category }) {
         <Categories category={category} />
         <SocialLinks socialLinks={socialLinks} />
       </Box>
-      <Box py={5}>
+      <Box py={5}  >
         <DiscussionEmbed
           shortname={disqusShortname}
           config={disqusConfig}

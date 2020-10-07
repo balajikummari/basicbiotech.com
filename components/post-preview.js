@@ -68,7 +68,7 @@ export default function PostPreview({ singlePost }) {
 
   return (
     <Grid item xs={12} sm={6} md={4} lg={4}>
-      <Card className={classes.root} style={{ backgroundColor: '#1E1F20' }}>
+      <Card className={classes.root} elevation={10} >
 
         <AuthorHead dateGmt={singlePost.dateGmt} customauthor={singlePost.postdata.customauthor} />
 
@@ -82,8 +82,8 @@ export default function PostPreview({ singlePost }) {
         <CardActionArea >
           {/** Title  */}
           <Container>
-            <Typography variant="h5" color="initial" className={classes.title} >
-              <Box className={classes.twoLinetext} lineHeight={1.2} > {singlePost.title}</Box>
+            <Typography variant="h6" color="initial" className={classes.title} >
+              <Box fontWeight={600} className={classes.twoLinetext} lineHeight={1.2} > {singlePost.title}</Box>
             </Typography>
           </Container>
 
@@ -117,20 +117,22 @@ export default function PostPreview({ singlePost }) {
           <Box>
             {
               singlePost.postdata.sourcename ?
-                <Link href={singlePost.postdata.sourcelink}>
+                <Link target="_blank" href={singlePost.postdata.sourcelink} variant='inherit'
+                  color='inherit'
+                  underline='none' >
                   <Button variant="outlined" color="primary" >
                     <Typography variant="body2" style={{ textTransform: 'none' }} >
-                      <Box fontWeight={800} >
-                        Continue Reading {" at " + singlePost.postdata.sourcename}
+                      <Box fontWeight={600} >
+                        Continue Reading  {" at "} <br /> {singlePost.postdata.sourcename}
                       </Box>
                     </Typography>
                   </Button>
                 </Link>
                 :
-                <Link as={`/posts/${singlePost.slug}`} href="/posts/[slug]">
+                <Link target="_blank" as={`/posts/${singlePost.slug}`} href="/posts/[slug]">
                   <Button variant="outlined" color="primary" >
                     <Typography variant="body2" style={{ textTransform: 'none' }} >
-                      <Box fontWeight={800} >
+                      <Box fontWeight={600} >
                         Continue Reading
                       </Box>
                     </Typography>
@@ -142,11 +144,11 @@ export default function PostPreview({ singlePost }) {
           <Box style={{ marginLeft: 'auto' }}>
             <SocialLinks socialLinks={singlePost.socialLinks} />
 
-           
+
 
           </Box>
         </CardActions>
-       
+
       </Card>
     </Grid >
 

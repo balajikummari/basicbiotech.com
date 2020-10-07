@@ -52,7 +52,7 @@ export default function AudioButton({
           variant="contained"
           color="primary"
           disableElevation>
-          {postdata.audiolength + ' Minute Listen'}
+          {postdata.audiolength + ' - Minute Listen'}
         </Button>
         <Modal
           open={open}
@@ -64,7 +64,7 @@ export default function AudioButton({
          rounded = {true}
           elevation={0}
           width="100%"
-          variation="default"
+          // variation="default"
           spacing={3}
           autoplay={true}
           order="standart"
