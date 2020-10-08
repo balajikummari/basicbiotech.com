@@ -12,7 +12,7 @@ export default function Footer() {
 
   return (
   
-    <Card  style={{backgroundColor:theme.palette.background.default}} elevation={20}>
+    <Card  style={{backgroundColor:theme.palette.background.default}} elevation={20} >
       <Container>
       
         <Box py={5}>
