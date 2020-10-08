@@ -14,6 +14,8 @@ import Categories from './categories'
 import SocialLinks from './socialLinks'
 
 
+import { useTheme } from '@material-ui/core/styles';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PostPreview({ singlePost }) {
+  const theme = useTheme();
   const classes = useStyles();
   const date = parseISO(singlePost.dateGmt)
   const cdnAuthor = "https://mldspy5by2vi.i.optimole.com/w:50/h:auto/q:auto/";
@@ -68,7 +71,7 @@ export default function PostPreview({ singlePost }) {
 
   return (
     <Grid item xs={12} sm={6} md={4} lg={4}>
-      <Card className={classes.root} elevation={10} >
+      <Card className={classes.root} elevation={18} style={{backgroundColor:theme.palette.background.default }}>
 
         <AuthorHead dateGmt={singlePost.dateGmt} customauthor={singlePost.postdata.customauthor} />
 

@@ -25,10 +25,11 @@ const styles = {
 
 function ButtonAppBar(props) {
   const { classes } = props;
-  const darkMode = useDarkMode(false);
+  const darkMode = useDarkMode();
   return (
     <AppBar position="fixed" color="default" className={classes.navigation}>
-      <Toolbar>
+      <Toolbar style={{justifyContent: 'space-around'}} alignItems="center">
+      <Box display='flex' style={{marginRight:'auto'}} alignItems="center">
         <Link as href='/' variant='inherit' underline="none">
           <Avatar aria-label="author" variant="square" style={{ margin: "0rem 1rem" }} src="/favicon/android-icon-192x192.png"  />
           </Link>
@@ -43,17 +44,16 @@ function ButtonAppBar(props) {
           </Box>
           </Typography>
           </Link>
-        {/* <Hidden smUp > */}
-        <IconButton  onClick={darkMode.toggle} >
+          </Box>
+        <Hidden smUp >
+        <IconButton style={{marginRight: '2rem'}} onClick={darkMode.toggle} >
           <Typography variant='h6'>
           <Box  >
-          {darkMode.value?'🌞':'🌛'}  
+          {darkMode.value?'🌛':'🌞'}  
           </Box>
           </Typography>
           </IconButton>
-          {/* </Hidden> */}
-
-          
+        </Hidden>
           {/* <Page /> */}
 
           <AppBarCollapse allTopics={props.allTopics}/>

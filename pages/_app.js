@@ -5,6 +5,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme, { darkTheme, lightTheme } from '../styles/theme';
 import useDarkMode from 'use-dark-mode';
+import { responsiveFontSizes } from '@material-ui/core/styles';
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
@@ -26,7 +27,7 @@ export default function MyApp(props) {
         <title>My page</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
-      <ThemeProvider theme={themeConfig}>
+      <ThemeProvider theme={responsiveFontSizes(themeConfig)}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Component {...pageProps} />

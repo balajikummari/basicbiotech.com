@@ -1,9 +1,10 @@
 
 import React from "react";
-import { Box, Button, Grid, Link, MenuItem, Typography } from "@material-ui/core";
+import { Box, Button, Grid, Link, MenuItem, Typography, IconButton } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import ButtonAppBarCollapse from "./ButtonAppBarCollapse";
 import Topics from "./topics";
+import useDarkMode from 'use-dark-mode';
 
 const styles = theme => ({
   root: {
@@ -23,7 +24,9 @@ const styles = theme => ({
   }
 });
 
-const AppBarCollapse = props => (
+const AppBarCollapse = props => {
+  const darkMode = useDarkMode();
+  return(
   <Box  className={props.classes.root} >
     <ButtonAppBarCollapse >
       <Box  pl={2} pr ={5} pt={2} >
@@ -88,16 +91,25 @@ const AppBarCollapse = props => (
       </Button>
       </Link>
 
-{/* 
-      <Button style={{ padding: '0.5rem 1rem' }} >
-      <Typography variant='subtitle1'>
+    
+        {/* <IconButton  >
+          <Typography variant='h6'>
+          <Box  >
+         fg
+          </Box>
+          </Typography>
+          </IconButton> */}
+      
+      <Button style={{ padding: '0.5rem 1rem' }} onClick={darkMode.toggle} >
+      <Typography variant='body1'>
       <Box fontWeight={400} >
-      Search
+      {darkMode.value?'🌛':'🌞'}  
       </Box>
       </Typography>
-      </Button> */}
+      </Button>
+
     </Box>
   </Box>
-);
+)}
 
 export default withStyles(styles)(AppBarCollapse);

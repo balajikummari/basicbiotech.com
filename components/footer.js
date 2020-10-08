@@ -1,4 +1,4 @@
-import { Avatar, Box, Card, Container, Grid, Link, Paper } from '@material-ui/core'
+import { Avatar, Box, Card, Container, Grid, Link, Paper, useTheme } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 
 import FacebookIcon from '@material-ui/icons/Facebook';
@@ -8,8 +8,11 @@ import YouTubeIcon from '@material-ui/icons/YouTube';
 import IconButton from '@material-ui/core/IconButton';
 
 export default function Footer() {
+  const theme = useTheme();
+
   return (
-    <Card  style={{ marginTop:'2.5rem' }} elevation={20}>
+  
+    <Card  style={{backgroundColor:theme.palette.background.default}} elevation={20}>
       <Container>
       
         <Box py={5}>
@@ -86,5 +89,6 @@ export default function Footer() {
         </Box>
       </Container>
       </Card>
+      
   )
 }
