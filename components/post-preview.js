@@ -71,7 +71,7 @@ export default function PostPreview({ singlePost }) {
 
   return (
     <Grid item xs={12} sm={6} md={4} lg={4}>
-      <Card className={classes.root} elevation={18} style={{backgroundColor:theme.palette.background.default }}>
+      <Card className={classes.root} elevation={18} >
 
         <AuthorHead dateGmt={singlePost.dateGmt} customauthor={singlePost.postdata.customauthor} />
 
