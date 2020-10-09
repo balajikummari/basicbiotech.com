@@ -35,7 +35,7 @@ export async  function getStaticProps({ params}) {
    const allTopics = await getAllTopics()
   return {
     props: { allPosts, allTopics},
-    revalidate: 60
+    revalidate: 30
   }
 }
 

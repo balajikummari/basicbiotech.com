@@ -81,7 +81,7 @@ export async function getStaticProps({ params, preview = false, previewData }) {
       allTopics,
       slug : params.slug
     },
-    revalidate: 8
+    revalidate: 30
   }
 }
 

@@ -8,7 +8,7 @@ import { Box, Container, Grid, IconButton, Paper, Typography } from '@material-u
 export default function Author(props) {
   const postPreviewContent = props.filteredPosts
   const customAuthor = postPreviewContent? postPreviewContent[0]?.node?.postdata.customauthor.customauthor : null
-  
+ // console.log('postPreviewContent :::', postPreviewContent)
   return (
     <>
       <Layout allTopics={props.allTopics} >
@@ -66,15 +66,19 @@ export async function getStaticProps({ params }) {
   const allPosts = await getAllPostsForHome()
   const postPreviewContent = allPosts?.edges
 
-  const filteredPosts = postPreviewContent?.map((node) =>
-    node.node.postdata.customauthor.slug == params.slug ? node : null)
+  const filteredPosts = postPreviewContent?.filter((node) =>{
+    if(node.node.postdata.customauthor.slug == params.slug){
+      return(node)
+    }
+  })
+    // node.node.postdata.customauthor.slug == params.slug ? node : null)
 
-  //console.log( 'filteredPosts data ::' , filteredPosts)
+  console.log( 'filteredPosts data ::' , filteredPosts)
 
   const allTopics = await getAllTopics()
   return {
     props: { filteredPosts, allTopics },
-    revalidate: 60
+    revalidate: 30
   }
 }
 
