@@ -3,12 +3,13 @@ import MoreStories from '../../components/more-stories'
 import Layout from '../../components/layout'
 import { getAllAuthors, getAllPostsForHome, getAllPostsForTopic, getAllTopics } from '../../lib/api'
 import Header from '../../components/custom/header'
-import { Box, Container, Grid, IconButton, Paper, Typography } from '@material-ui/core'
+import { Box, Card, CardMedia, Container, Grid, IconButton, Paper, Typography } from '@material-ui/core'
 
 export default function Author(props) {
   const postPreviewContent = props.filteredPosts
   const customAuthor = postPreviewContent? postPreviewContent[0]?.node?.postdata.customauthor.customauthor : null
  // console.log('postPreviewContent :::', postPreviewContent)
+ console.log('customAuthor?.profilePhoto.mediaItemUrl :::', customAuthor?.profilePhoto.mediaItemUrl)
   return (
     <>
       <Layout allTopics={props.allTopics} >
@@ -21,7 +22,7 @@ export default function Author(props) {
           <Container >
 
             <Container disableGutters maxWidth='sm' >
-            <Paper>
+            <Card>
               <Grid
                 container
                 direction="row"
@@ -34,7 +35,8 @@ export default function Author(props) {
               >
 
                 <Grid item sm={12} md={6} lg={6}  >
-                  <img style={{ height: '30vh' }} src={customAuthor?.profilePhoto.mediaItemUrl} />
+                {/* <CardMedia image={customAuthor?.profilePhoto.mediaItemUrl} title ='author'/> */}
+                  <img style={{  height: 'auto' }} src={customAuthor?.profilePhoto.mediaItemUrl} />
                 </Grid>
 
                 <Grid item sm={12} md={6} lg={6} >
@@ -49,7 +51,7 @@ export default function Author(props) {
                   </Typography>
                 </Grid>
               </Grid>
-              </Paper>
+              </Card>
             </Container>
 
             {postPreviewContent?.length > 0 && <MoreStories posts={postPreviewContent} />}
