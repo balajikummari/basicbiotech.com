@@ -3,13 +3,14 @@ import MoreStories from '../../components/more-stories'
 import Layout from '../../components/layout'
 import { getAllAuthors, getAllPostsForHome, getAllPostsForTopic, getAllTopics } from '../../lib/api'
 import Header from '../../components/custom/header'
-import { Box, Card, CardMedia, Container, Grid, IconButton, Paper, Typography } from '@material-ui/core'
+import { Box, Card, useTheme, CardMedia, Container, Grid, IconButton, Paper, Typography } from '@material-ui/core'
 
 export default function Author(props) {
+  const theme = useTheme();
   const postPreviewContent = props.filteredPosts
   const customAuthor = postPreviewContent? postPreviewContent[0]?.node?.postdata.customauthor.customauthor : null
  // console.log('postPreviewContent :::', postPreviewContent)
- console.log('customAuthor?.profilePhoto.mediaItemUrl :::', customAuthor?.profilePhoto.mediaItemUrl)
+///console.log('customAuthor?.profilePhoto.mediaItemUrl :::', customAuthor?.profilePhoto.mediaItemUrl)
   return (
     <>
       <Layout allTopics={props.allTopics} >
@@ -21,8 +22,8 @@ export default function Author(props) {
 
           <Container >
 
-            <Container disableGutters maxWidth='sm' >
-            <Card>
+            <Container disableGutters maxWidth='md' style={{backgroundColor: theme.palette.background.default}}>
+            <Card style={{backgroundColor: theme.palette.background.default}} elevation={18}>
               <Grid
                 container
                 direction="row"
@@ -75,7 +76,7 @@ export async function getStaticProps({ params }) {
   })
     // node.node.postdata.customauthor.slug == params.slug ? node : null)
 
-  console.log( 'filteredPosts data ::' , filteredPosts)
+ /// console.log( 'filteredPosts data ::' , filteredPosts)
 
   const allTopics = await getAllTopics()
   return {

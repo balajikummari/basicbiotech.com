@@ -3,11 +3,11 @@ import MoreStories from '../../components/more-stories'
 import Layout from '../../components/layout'
 import { getAllPostsForTopic,getAllTopics } from '../../lib/api'
 import Header from '../../components/custom/header'
-import { Box, Container, IconButton } from '@material-ui/core'
+import { Box, Container, IconButton,useTheme } from '@material-ui/core'
 
 export default function Topic(props) {
   const postPreviewContent = props?.allPosts?.edges
-
+  const theme = useTheme();
   //console.log(postPreviewContent)
 
   return (
@@ -18,8 +18,8 @@ export default function Topic(props) {
         </Head>
         {/* <Header allTopics={props.allTopics}/> */}
 
-        <Box  mt={0} pt ={12} > 
-          <Container >
+        <Box  mt={0} pt ={12} style={{backgroundColor: theme.palette.background.default}} > 
+          <Container style={{backgroundColor: theme.palette.background.default}}>
               {postPreviewContent?.length > 0 && <MoreStories posts={postPreviewContent} />}
           </Container>
         </Box>
