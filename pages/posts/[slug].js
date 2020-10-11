@@ -46,6 +46,7 @@ export default function Post({ post, posts, preview, allTopics,slug }) {
                   post={post}
                   title={post.title}
                   date={post.date}
+                  category={post.postdata.category}
                 />
 
                 <Box>

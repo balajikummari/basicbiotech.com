@@ -102,13 +102,13 @@ whileHover={{
         <Card className={classes.root} elevation={6} >
 
 
-          <AuthorHead dateGmt={singlePost.dateGmt} customauthor={singlePost.postdata.customauthor} />
+          <AuthorHead dateGmt={singlePost.dateGmt} category={singlePost.postdata.category}  customauthor={singlePost.postdata.customauthor} />
 
-          <Container >
+          {/* <Container >
             <Box py='0.1rem'>
               <Categories category={singlePost.postdata.category} />
             </Box>
-          </Container>
+          </Container> */}
 
 
 

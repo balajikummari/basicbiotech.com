@@ -5,20 +5,21 @@ import CardHeader from '@material-ui/core/CardHeader';
 import { makeStyles } from '@material-ui/core/styles';
 import { format, parseISO } from 'date-fns';
 import Link from 'next/link';
+import Categories from '../categories';
 
 const useStyles = makeStyles((theme) => ({
 
 }));
 
 export default function AuthorHead({
-    customauthor, dateGmt
+    customauthor, dateGmt,category
 }) {
   const cdnAuthor = "https://mldspy5by2vi.i.optimole.com/w:50/h:auto/q:auto/";
   const classes = useStyles();
   const date = parseISO(dateGmt)
 
   return ( 
-    <Box display='flex'>
+    <Box display='flex' justifyContent="center" alignItems="center">
     <CardActionArea as={`/authors/${customauthor.customauthor.slug}`} href={`/authors/${  customauthor.slug}`} >
         {/** Author Photo Name and Date */}
         <CardHeader avatar={
@@ -34,6 +35,9 @@ export default function AuthorHead({
           subheader={format(date, 'LLLL	d, yyyy')}
         />
         </CardActionArea>
+        <Box pr='1rem'>
+           <Categories category={category} />
+        </Box>
         </Box>       
  )
 }

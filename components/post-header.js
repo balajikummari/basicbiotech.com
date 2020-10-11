@@ -3,7 +3,7 @@ import { Box, Container, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import AuthorHead from './authorHead';
 import Categories from './categories';
-import SocialLinks from './socialLinks';
+import SocialLinksFlex from './SocialLinksFlex';
 import AudioPlayer from 'material-ui-audio-player';
 
 
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function PostHeader({
-  post,
+  post,category
 }) {
   // console.log('post img:', post.postdata.thumbnail.mediaItemUrl)
 
@@ -31,11 +31,11 @@ export default function PostHeader({
 
     <Box>
 
-    <AuthorHead dateGmt={post.dateGmt} customauthor={post.postdata.customauthor} />
-
+    <AuthorHead category={category} dateGmt={post.dateGmt} customauthor={post.postdata.customauthor} />
+    
      <Box py='1rem' display='flex' >
-    <Categories  category={post.postdata.category} />
-    <SocialLinks socialLinks={post.socialLinks} />
+    {/* <Categories  category={post.postdata.category} /> */}
+    <SocialLinksFlex socialLinks={post.socialLinks} />
     </Box>
     </Box>
     

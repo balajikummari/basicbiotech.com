@@ -1,11 +1,10 @@
+import { Box, Card, Container, Grid, Typography, useTheme } from '@material-ui/core'
 import Head from 'next/head'
-import MoreStories from '../../components/more-stories'
 import Layout from '../../components/layout'
-import { getAllAuthors, getAllPostsForHome, getAllPostsForTopic, getAllTopics } from '../../lib/api'
-import Header from '../../components/custom/header'
-import { Box, Card, useTheme, CardMedia, Container, Grid, IconButton, Paper, Typography } from '@material-ui/core'
-
+import MoreStories from '../../components/more-stories'
 import SocialLinksFlex from '../../components/socialLinksFlex'
+import { getAllAuthors, getAllPostsForHome, getAllTopics } from '../../lib/api'
+
 
 export default function Author(props) {
   const theme = useTheme();

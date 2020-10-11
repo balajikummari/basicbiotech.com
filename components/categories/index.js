@@ -14,22 +14,21 @@ export default function Categories({
   return (
     <Grid container
       direction="row"
-      justify="flex-start"
+      justify="flex-end"
       spacing={1}>
-      {category.map((categ) => {
-        return (
+
           <Grid item >
             <Box display="flex" justifyContent="center" alignItems="center">
               <Button size="small" variant="contained" color="primary" className={classes.tag} disableElevation>
-                <Link as={`/topics/${categ.name}`} href={`/topics/${categ.name}`} color='inherit' underline='none'>
+                <Link as={`/topics/${category? category[0]?.name : ''}`} href={`/topics/${category? category[0]?.name : ''}`} color='inherit' underline='none'>
                   <Typography  variant='caption'>
-                    {categ.name}
+                    {category? category[0]?.name : ''}
                   </Typography>
                 </Link>
               </Button>
             </Box>
-          </Grid>)
-      })}
+          </Grid>
+     
     </Grid>
   )
 }
