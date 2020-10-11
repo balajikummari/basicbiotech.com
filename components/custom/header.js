@@ -48,13 +48,13 @@ function ButtonAppBar(props) {
           </Link>
           </Box>
         <Hidden smUp >
-        <IconButton style={{marginRight: '2rem'}} onClick={darkMode.toggle} >
-          <Typography variant='h6'>
-          <Box  >
+        
+        
+          <Button onClick={darkMode.toggle} style={{marginRight:'3rem', fontSize:'1.2rem' }} >
           {darkMode.value?'🌛':'🌞'}  
-          </Box>
-          </Typography>
-          </IconButton>
+          </Button>
+          
+       
         </Hidden>
           {/* <Page /> */}
 

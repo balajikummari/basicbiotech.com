@@ -1,6 +1,6 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { Menu } from "@material-ui/core";
+import { Button, Menu } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 
@@ -35,9 +35,9 @@ class ButtonAppBarCollapse extends React.Component {
 
     return (
       <div className={classes.buttonCollapse} >
-        <IconButton onClick={this.handleMenu}>
-          <MenuIcon />
-        </IconButton>
+        <Button size='medium' onClick={this.handleMenu} >
+          <MenuIcon fontSize='large' />
+        </Button>
         <Menu
           id="menu-appbar"
           anchorEl={anchorEl}
