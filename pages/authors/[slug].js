@@ -48,11 +48,13 @@ export default function Author(props) {
                 </Grid>
 
                 <Grid item sm={12} md={6} lg={6} >
+                  <Box>
                   <Typography variant='h2' color='primary'  >
                     {customAuthor?.fullName}
                   </Typography>
-                  <Box pr={5}>
+                  <Box pr={0}>
                   <SocialLinksFlex socialLinks={customAuthorParent?.socialLinks} />
+                  </Box>
                   </Box>
                 </Grid>
 

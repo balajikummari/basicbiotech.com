@@ -24,7 +24,7 @@ export default function SocialLinksFlex({
 
   return (
 
-    <Box style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', marginLeft: 'auto', marginTop: 'auto' }}>
+    <Box style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', marginLeft: 'auto', marginTop: 'auto' }}>
         {/**Instagram  */}
 
 
