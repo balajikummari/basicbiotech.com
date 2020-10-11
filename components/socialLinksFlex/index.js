@@ -9,7 +9,7 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import TwitterIcon from '@material-ui/icons/Twitter';
-
+import LanguageIcon from '@material-ui/icons/Language';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SocialLinksFlex({
-  socialLinks,
+  socialLinks,personalWebsite
 }) {
   //console.log('post :', post)
   const classes = useStyles();
@@ -26,7 +26,16 @@ export default function SocialLinksFlex({
 
     <Box style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', marginLeft: 'auto', marginTop: 'auto' }}>
         {/**Instagram  */}
-
+       
+        {
+          personalWebsite?
+            <a href={personalWebsite} target="_blank">
+              <IconButton aria-label="share to instagram" style={{ padding: '0.3rem' }}>
+                <LanguageIcon />
+              </IconButton>
+            </a>
+            : <span />
+        }
 
         {
           socialLinks?.instagram ?
