@@ -3,7 +3,7 @@ import { Box, Container, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import AuthorHead from './authorHead';
 import Categories from './categories';
-import SocialLinksFlex from './SocialLinksFlex';
+import SocialLinksFlex from './socialLinksFlex';
 import AudioPlayer from 'material-ui-audio-player';
 
 

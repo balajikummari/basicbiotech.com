@@ -18,7 +18,7 @@ export default function Post({ post, posts, preview, allTopics,slug }) {
     return <ErrorPage statusCode={404} />
   }
 
-  console.log('slug from static  ::', slug)
+  //console.log('slug from static  ::', slug)
   return (
     <Layout preview={preview} allTopics={allTopics}>
       <Head>
