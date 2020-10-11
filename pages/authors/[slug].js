@@ -5,10 +5,13 @@ import { getAllAuthors, getAllPostsForHome, getAllPostsForTopic, getAllTopics } 
 import Header from '../../components/custom/header'
 import { Box, Card, useTheme, CardMedia, Container, Grid, IconButton, Paper, Typography } from '@material-ui/core'
 
+import SocialLinksFlex from '../../components/socialLinksFlex'
+
 export default function Author(props) {
   const theme = useTheme();
   const postPreviewContent = props.filteredPosts
   const customAuthor = postPreviewContent? postPreviewContent[0]?.node?.postdata.customauthor.customauthor : null
+  const customAuthorParent = postPreviewContent? postPreviewContent[0]?.node?.postdata.customauthor : null
  // console.log('postPreviewContent :::', postPreviewContent)
 ///console.log('customAuthor?.profilePhoto.mediaItemUrl :::', customAuthor?.profilePhoto.mediaItemUrl)
   return (
@@ -48,6 +51,9 @@ export default function Author(props) {
                   <Typography variant='h2' color='primary'  >
                     {customAuthor?.fullName}
                   </Typography>
+                  <Box pr={5}>
+                  <SocialLinksFlex socialLinks={customAuthorParent?.socialLinks} />
+                  </Box>
                 </Grid>
 
                 <Grid item sm={12} md={12} lg={12} >
