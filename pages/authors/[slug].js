@@ -53,7 +53,7 @@ export default function Author(props) {
                     {customAuthor?.fullName}
                   </Typography>
                   <Box pr={0}>
-                  <SocialLinksFlex personalWebsite={customAuthor.personalWebsite} socialLinks={customAuthorParent?.socialLinks} />
+                  <SocialLinksFlex personalWebsite={customAuthor?.personalWebsite} socialLinks={customAuthorParent?.socialLinks} />
                   </Box>
                   </Box>
                 </Grid>
