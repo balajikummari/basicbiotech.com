@@ -19,7 +19,7 @@ export default function Topic(props) {
         {/* <Header allTopics={props.allTopics}/> */}
       
         <Box  mt={0} pt ={12} bgcolor="background.default" > 
-          <Container style={{backgroundColor: theme.palette.background.default}}>
+          <Container >
               {postPreviewContent?.length > 0 && <MoreStories posts={postPreviewContent} />}
           </Container>
         </Box>
