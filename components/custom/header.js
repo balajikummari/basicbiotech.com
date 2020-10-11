@@ -26,8 +26,10 @@ const styles = {
 function ButtonAppBar(props) {
   const { classes } = props;
   const darkMode = useDarkMode();
+  console.log('darkMode.value in had : ',darkMode.value)
+
   return (
-    <AppBar position="fixed" color="default" className={classes.navigation}>
+    <AppBar position="fixed" color='default' className={classes.navigation}>
       <Toolbar style={{justifyContent: 'space-around'}} alignItems="center">
       <Box display='flex' style={{marginRight:'auto'}} alignItems="center">
         <Link as href='/' variant='inherit' underline="none">

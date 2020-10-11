@@ -18,26 +18,30 @@ export default function Author(props) {
           <title>Basic Biotech </title>
         </Head>
 
-        <Box mt={0} pt={12} >
+        <Box mt={0} pt={12} bgcolor="background.default" >
 
           <Container >
-
-            <Container disableGutters maxWidth='md' style={{backgroundColor: theme.palette.background.default}}>
-            <Card style={{backgroundColor: theme.palette.background.default}} elevation={18}>
+            <Container disableGutters maxWidth='md' >
+            <Card  elevation={18}
+             style={{ 
+                  margin: '1rem 0rem 2rem 0rem' ,
+                  
+                  }}
+                  >
               <Grid
                 container
                 direction="row"
                 justify="center"
                 alignItems="center"
                 style={{ 
-                  margin: '1rem 0rem 2rem 0rem' ,
+                  margin: '1rem 0rem 1rem 0rem' ,
                   padding: '1rem 1rem'
                   }}
               >
 
                 <Grid item sm={12} md={6} lg={6}  >
                 {/* <CardMedia image={customAuthor?.profilePhoto.mediaItemUrl} title ='author'/> */}
-                  <img style={{  height: 'auto' }} src={customAuthor?.profilePhoto.mediaItemUrl} />
+                  <img style={{ maxWidth:'100%', height: 'auto',  maxHeight: '30vh' }} src={customAuthor?.profilePhoto.mediaItemUrl} />
                 </Grid>
 
                 <Grid item sm={12} md={6} lg={6} >

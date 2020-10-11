@@ -18,7 +18,7 @@ export default function MyApp(props) {
     }
   }, []);
 
-  const {value: isDark} = useDarkMode(true)
+  const {value: isDark} = useDarkMode()
   const themeConfig = isDark ? darkTheme : lightTheme;
 
   return (

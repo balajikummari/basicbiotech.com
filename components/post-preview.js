@@ -17,6 +17,7 @@ import SocialLinks from './socialLinks'
 import { useTheme } from '@material-ui/core/styles';
 
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%'
@@ -60,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
   }
 
 }));
-
+ 
 export default function PostPreview({ singlePost }) {
   const theme = useTheme();
   const classes = useStyles();
@@ -69,12 +70,14 @@ export default function PostPreview({ singlePost }) {
   const ThumbNail = "https://mldspy5by2vi.i.optimole.com/w:400/h:auto/q:auto/";
 
 
+  
+
+
   return (
     <Grid item xs={12} sm={6} md={4} lg={4}>
-      <Card className={classes.root} 
-      style={{backgroundColor: theme.palette.background.default}} 
-      elevation={15} >
+      <Card className={classes.root}  elevation={6} >
 
+   
         <AuthorHead dateGmt={singlePost.dateGmt} customauthor={singlePost.postdata.customauthor} />
 
         <Container >
@@ -115,8 +118,6 @@ export default function PostPreview({ singlePost }) {
 
         </CardContent>
 
-
-
         <CardActions style={{ padding: '1rem 1.5rem', color: 'white', justify: 'space-between' }} disableSpacing>
 
           <Box>
@@ -153,8 +154,9 @@ export default function PostPreview({ singlePost }) {
 
           </Box>
         </CardActions>
-
+       
       </Card>
+      
     </Grid >
 
 

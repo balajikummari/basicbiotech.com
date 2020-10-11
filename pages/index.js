@@ -3,13 +3,16 @@ import MoreStories from '../components/more-stories'
 import Layout from '../components/layout'
 import { getAllPostsForHome,getAllTopics } from '../lib/api'
 import Header from '../components/custom/header'
-import { Box, Container, IconButton } from '@material-ui/core'
+import { Box, Card, Container, IconButton, Paper } from '@material-ui/core'
+import DarkMode from 'use-dark-mode';
+import useDarkMode from 'use-dark-mode';
 
 import { useTheme } from '@material-ui/core/styles';
 
 export default function Index({ allPosts: { edges },allTopics }) {
   const postPreviewContent = edges
   const theme = useTheme();
+
 
   //TODO : FramerX motion
   return (
@@ -19,12 +22,11 @@ export default function Index({ allPosts: { edges },allTopics }) {
           <title>Basic Biotech </title>
         </Head>
   
-        <Box  mt={0} pt ={12} >
+        <Box   bgcolor="background.default" style = {{ paddingTop:'6rem' }}  >
           <Container >
-          
               {postPreviewContent.length > 0 && <MoreStories posts={postPreviewContent} />}
           </Container>
-        </Box>
+          </Box>
       </Layout>
     </>
   )

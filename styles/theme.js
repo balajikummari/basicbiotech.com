@@ -1,3 +1,4 @@
+import { grey } from '@material-ui/core/colors';
 import { createMuiTheme,responsiveFontSizes  } from '@material-ui/core/styles';
 
 
@@ -11,7 +12,7 @@ let theme = {
     ].join(','),
   },
   palette: {
-    type: 'dark',
+    
     primary: {
       main: '#0988C8',
     },
@@ -35,7 +36,11 @@ export const darkTheme = createMuiTheme({
   ...theme,
   palette:{
     ...theme.palette,
-    type:'dark'
+    type:'dark',
+    background:{
+      paper:grey[900],
+      default:'#2b2b2b'
+    }
   }
 })
 

@@ -6,13 +6,16 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import IconButton from '@material-ui/core/IconButton';
+import useDarkMode from 'use-dark-mode'
 
 export default function Footer() {
   const theme = useTheme();
+  
+
 
   return (
   
-    <Card  style={{backgroundColor: theme.palette.background.default}} elevation={20}>
+    <Card    elevation={20}>
       <Container>
       
         <Box py={5}>
