@@ -24,6 +24,7 @@ export default function Post({ post, posts, preview, allTopics,slug }) {
       <Head>
 
       </Head>
+      <Box bgcolor="background.default">
       <Container>
         {/* <Header allTopics={allTopics} /> */}
         {router.isFallback ? (
@@ -65,6 +66,7 @@ export default function Post({ post, posts, preview, allTopics,slug }) {
             </>
           )}
       </Container>
+      </Box>
     </Layout>
   )
 }

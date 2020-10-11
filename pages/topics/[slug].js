@@ -17,8 +17,8 @@ export default function Topic(props) {
           <title>Basic Biotech </title>
         </Head>
         {/* <Header allTopics={props.allTopics}/> */}
-
-        <Box  mt={0} pt ={12} style={{backgroundColor: theme.palette.background.default}} > 
+      
+        <Box  mt={0} pt ={12} bgcolor="background.default" > 
           <Container style={{backgroundColor: theme.palette.background.default}}>
               {postPreviewContent?.length > 0 && <MoreStories posts={postPreviewContent} />}
           </Container>
