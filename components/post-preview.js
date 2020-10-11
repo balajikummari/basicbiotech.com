@@ -87,7 +87,7 @@ export default function PostPreview({ singlePost }) {
         </Container>
 
 
-        <CardActionArea >
+     
           {/** Title  */}
           <Container>
             <Typography variant="h6" color="initial" className={classes.title} >
@@ -103,7 +103,7 @@ export default function PostPreview({ singlePost }) {
               title={singlePost.title}
             />
           </Container>
-        </CardActionArea>
+       
 
 
         <CardContent style={{ padding: '1rem 1.5rem' }}>
