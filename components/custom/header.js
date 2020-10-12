@@ -41,6 +41,7 @@ function ButtonAppBar(props) {
               className={classes.appTitle}
               color='textPrimary'
             >
+
               {/* <Box fontWeight={700}>
           Basic Biotech
           </Box> */}
