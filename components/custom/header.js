@@ -26,46 +26,46 @@ const styles = {
 function ButtonAppBar(props) {
   const { classes } = props;
   const darkMode = useDarkMode();
- // console.log('darkMode.value in had : ',darkMode.value)
+  // console.log('darkMode.value in had : ',darkMode.value)
 
   return (
     <AppBar position="fixed" color='default' className={classes.navigation}>
-      <Toolbar style={{justifyContent: 'space-around'}} alignItems="center">
-      <Box display='flex' style={{marginRight:'auto'}} alignItems="center">
-        <Link as href='/' variant='inherit' underline="none">
-          <Avatar aria-label="author" variant="square" style={{ margin: "0rem 1rem" }} src="/favicon/android-icon-192x192.png"  />
+      <Toolbar style={{ justifyContent: 'space-around' }} alignItems="center">
+        <Box display='flex' style={{ marginRight: 'auto' }} alignItems="center">
+          <Link as href='/' variant='inherit' underline="none">
+            <Avatar aria-label="author" variant="square" style={{ margin: "0rem 1rem" }} src="/favicon/android-icon-192x192.png" />
           </Link>
-         <Link variant='h6' href='/' underline="none" variant='inherit'>
+          <Link variant='h6' href='/' underline="none" variant='inherit'>
             <Typography
-            variant="h5"
-            className={classes.appTitle}
-            color='textPrimary'
-          >
-          <Box fontWeight={700}>
+              variant="h5"
+              className={classes.appTitle}
+              color='textPrimary'
+            >
+              {/* <Box fontWeight={700}>
           Basic Biotech
-          </Box>
-          </Typography>
+          </Box> */}
+            </Typography>
           </Link>
-          </Box>
+        </Box>
         <Hidden smUp >
-        
-        
-          <Button onClick={darkMode.toggle} style={{marginRight:'3rem', fontSize:'1.2rem' }} >
-          {darkMode.value?'🌛':'🌞'}  
-          </Button>
-          
-       
-        </Hidden>
-          {/* <Page /> */}
 
-          <AppBarCollapse allTopics={props.allTopics}/>
+
+          <Button onClick={darkMode.toggle} style={{ marginRight: '3rem', fontSize: '1.2rem' }} >
+            {darkMode.value ? '🌛' : '🌞'}
+          </Button>
+
+
+        </Hidden>
+        {/* <Page /> */}
+
+        <AppBarCollapse allTopics={props.allTopics} />
       </Toolbar>
     </AppBar>
   );
 }
 
 ButtonAppBar.propTypes = {
-        classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(ButtonAppBar);

@@ -135,8 +135,7 @@ whileHover={{
             <AudioButton postdata={singlePost.postdata} />
 
             <Typography variant="body2">
-              <Box className={classes.threeLinetext}  >
-                {singlePost.postdata.shortdescription}
+              <Box className={classes.threeLinetext}   >                {singlePost.postdata.shortdescription}
               </Box>
             </Typography>
 
