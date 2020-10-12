@@ -41,7 +41,7 @@ export default function Author(props) {
                   }}
                 >
 
-                  <Grid item xs={12} sm={6} md={6} lg={6}  >
+                  <Grid item xs={6} sm={6} md={6} lg={6}  >
                     {/* <CardMedia image={customAuthor?.profilePhoto.mediaItemUrl} title ='author'/> */}
                     <img style={{ maxWidth: '100%', height: 'auto', maxHeight: '30vh' }} src={customAuthor?.profilePhoto.mediaItemUrl} />
                   </Grid>
