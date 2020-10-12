@@ -20,10 +20,9 @@ export default function AuthorHead({
 
   return (
     <Box display='flex' justifyContent="space-between" alignItems="center">
-      <CardActionArea style={{ width: 'fit-content' }}>
+      <CardActionArea style={{ width: 'fit-content' }} as={`/authors/${customauthor.customauthor.slug}`} href={`/authors/${customauthor.slug}`} >
         {/** Author Photo Name and Date */}
         <CardHeader avatar={
-
           <Link as={`/authors/${customauthor.customauthor.slug}`} href="/authors/[slug]" variant='inherit'>
             <Avatar aria-label="author"
               className={classes.large}
@@ -31,7 +30,6 @@ export default function AuthorHead({
               src={cdnAuthor + customauthor.customauthor.profilePhoto.mediaItemUrl}
             />
           </Link>
-
         }
           title={customauthor.customauthor.fullName}
           subheader={format(date, 'LLLL	d, yyyy')}
