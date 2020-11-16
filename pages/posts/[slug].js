@@ -10,7 +10,7 @@ import PostTitle from '../../components/post-title'
 import SectionSeparator from '../../components/section-separator'
 import { getAllPostsWithSlug, getAllTopics, getPostAndMorePosts } from '../../lib/api'
 
-export default function Post({ post, posts, preview, allTopics,slug }) {
+export default function Post({ post, posts, preview, allTopics, slug }) {
   const router = useRouter()
   const morePosts = posts?.edges
 
@@ -25,48 +25,48 @@ export default function Post({ post, posts, preview, allTopics,slug }) {
 
       </Head>
       <Box bgcolor="background.default">
-      <Container>
-        {/* <Header allTopics={allTopics} /> */}
-        {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
-        ) : (
-            <>
-              <article>
-                <Head>
-                  <title>
-                    {post.title} | Basic Biotech
+        <Container>
+          {/* <Header allTopics={allTopics} /> */}
+          {router.isFallback ? (
+            <PostTitle>Loading…</PostTitle>
+          ) : (
+              <>
+                <article>
+                  <Head>
+                    <title>
+                      {post.title} | Basic Biotech
                 </title>
-                  <meta
-                    property="og:image"
-                    content={post.featuredImage?.node?.sourceUrl}
+                    <meta
+                      property="og:image"
+                      content={post.featuredImage?.node?.sourceUrl}
+                    />
+                  </Head>
+
+                  <PostHeader
+                    post={post}
+                    title={post.title}
+                    date={post.date}
+                    category={post.postdata.category}
                   />
-                </Head>
 
-                <PostHeader
-                  post={post}
-                  title={post.title}
-                  date={post.date}
-                  category={post.postdata.category}
-                />
-
-                <Box>
+                  <Box>
 
 
-                  <PostBody slug={slug} category={post.postdata.category} socialLinks={post.socialLinks} content={post.content} />
-                </Box>
+                    <PostBody slug={slug} category={post.postdata.category} socialLinks={post.socialLinks} content={post.content} />
+                  </Box>
 
-                {/* <footer> */}
-                {/* {post.tags.edges.length > 0 && <Tags tags={post.tags} />} */}
-                {/* </footer> */}
-              </article>
+                  {/* <footer> */}
+                  {/* {post.tags.edges.length > 0 && <Tags tags={post.tags} />} */}
+                  {/* </footer> */}
+                </article>
 
-              {/* <SectionSeparator /> */}
-             
+                {/* <SectionSeparator /> */}
 
-              {/* {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
-            </>
-          )}
-      </Container>
+
+                {/* {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
+              </>
+            )}
+        </Container>
       </Box>
     </Layout>
   )
@@ -82,7 +82,7 @@ export async function getStaticProps({ params, preview = false, previewData }) {
       post: data.post,
       posts: data.posts,
       allTopics,
-      slug : params.slug
+      slug: params.slug
     },
     revalidate: 30
   }
@@ -92,7 +92,7 @@ export async function getStaticPaths() {
   const allPosts = await getAllPostsWithSlug()
 
   return {
-    paths: allPosts.edges.map(({ node }) => `/posts/${node.slug}`) || [],
+    paths: allPosts.edges.slice(1, 3).map(({ node }) => `/posts/${node.slug}`) || [],
     fallback: true,
   }
 }

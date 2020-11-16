@@ -6,6 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import theme, { darkTheme, lightTheme } from '../styles/theme';
 import useDarkMode from 'use-dark-mode';
 import { responsiveFontSizes } from '@material-ui/core/styles';
+import NextNprogress from 'nextjs-progressbar';
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
@@ -30,6 +31,13 @@ export default function MyApp(props) {
       <ThemeProvider theme={responsiveFontSizes(themeConfig)}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
+        <NextNprogress
+            options={{ easing: 'ease', speed: 500 }} ya
+            color="#29D"
+            startPosition={0.3}
+            stopDelayMs={200}
+            height="3"
+          />
         <Component {...pageProps} />
       </ThemeProvider>
     </React.Fragment>

@@ -19,19 +19,20 @@ export default function AuthorHead({
   const date = parseISO(dateGmt)
 
   return (
-    <Box display='flex' justifyContent="space-between" alignItems="center">
-      <CardActionArea style={{ width: 'fit-content' }} as={`/authors/${customauthor.customauthor.slug}`} href={`/authors/${customauthor.slug}`} >
+    customauthor ? 
+      <Box display='flex' justifyContent="space-between" alignItems="center">
+      <CardActionArea style={{ width: 'fit-content' }} as={`/authors/${customauthor?.customauthor?.slug}`} href={`/authors/${customauthor?.slug}`} >
         {/** Author Photo Name and Date */}
         <CardHeader avatar={
-          <Link as={`/authors/${customauthor.customauthor.slug}`} href="/authors/[slug]" variant='inherit'>
+          <Link as={`/authors/${customauthor?.customauthor?.slug}`} href="/authors/[slug]" variant='inherit'>
             <Avatar aria-label="author"
               className={classes.large}
-              alt={customauthor.customauthor.fullName}
-              src={cdnAuthor + customauthor.customauthor.profilePhoto.mediaItemUrl}
+              alt={customauthor?.customauthor?.fullName}
+              src={cdnAuthor + customauthor?.customauthor?.profilePhoto?.mediaItemUrl}
             />
           </Link>
         }
-          title={customauthor.customauthor.fullName}
+          title={customauthor?.customauthor?.fullName}
           subheader={format(date, 'LLLL	d, yyyy')}
         />
       </CardActionArea>
@@ -39,5 +40,8 @@ export default function AuthorHead({
         <Categories category={category} />
       </Box>
     </Box>
+  :
+  <div></div>  
+
   )
 }
