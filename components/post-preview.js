@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     margin: '0.5rem 0px 0.7rem 0px',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
-    height: '3.8rem'
+   // height: '3.8rem'
   },
 
 
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: "hidden",
     texOverflow: "ellipsis",
     display: "-webkit-box",
-    '-webkit-line-clamp': 2, /* number of lines to show */
+    '-webkit-line-clamp': 10, /* number of lines to show */
     '-webkit-box-orient': 'vertical'
   },
 
